@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>About</h1>
+    <p>An image which can be clicked on.</p>
+    <p>Länk till <a href="https://github.com/dbwebb-se/mvc">kursens GitHub-repo</a>.</p>
+    <a href="{{ asset('img/github.png') }}">
+        <img src="{{ asset('img/github.png') }}" alt="">
+    </a>
+{% endblock %}

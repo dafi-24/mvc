@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
+        <span class="site-title">My Symfony Site</span>
+    </header>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="{{ path('home') }}">Home</a></li>
+                <li><a href="{{ path('about') }}">About</a></li>
+                <li class="dropdown">
+                    <a href="{{ path('report') }}" class="dropdown-toggle">Report</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('report') }}#kmom01">Kmom01</a></li>
+                        <li><a href="{{ path('report') }}#kmom02">Kmom02</a></li>
+                        <li><a href="{{ path('report') }}#kmom03">Kmom03</a></li>
+                        <li><a href="{{ path('report') }}#kmom04">Kmom04</a></li>
+                        <li><a href="{{ path('report') }}#kmom05">Kmom05</a></li>
+                        <li><a href="{{ path('report') }}#kmom06">Kmom06</a></li>
+                        <li><a href="{{ path('report') }}#kmom07">Kmom07/10</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
+            </ul>
+        </nav>
+        {% block body %}{% endblock %}
+    </body>
+</html>
