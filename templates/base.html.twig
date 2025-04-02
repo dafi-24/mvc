@@ -13,7 +13,7 @@
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
-    <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
+    <header class="site-header" style="background-image: url({{ asset('img/violion.jpg') }})">
         <span class="site-title">My Symfony Site</span>
     </header>
     <body>
@@ -37,5 +37,6 @@
             </ul>
         </nav>
         {% block body %}{% endblock %}
+        {% include 'footer.html.twig' %}
     </body>
 </html>

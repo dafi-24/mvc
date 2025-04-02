@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}API Overview{% endblock %}
+
+{% block body %}
+    <h1>API Overview</h1>
+    <p>Här är en sammanställning av alla JSON-routes som erbjuds av webbplatsen:</p>
+    <ul>
+        {% for route in routes %}
+            <li>
+                <strong>Route:</strong> <a href="{{ route.route }}">{{ route.route }}</a><br>
+                <strong>Description:</strong> {{ route.description }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

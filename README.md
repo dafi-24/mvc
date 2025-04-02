@@ -1,35 +1,49 @@
-# MVC Report
+![Project Banner](public/img/symfony.png)
 
-En webbplats byggd med Symfony som innehåller redovisningstexter för kursmoment.
+# Komma igång med Symfony
 
-## Funktioner
-- Navigering mellan kursmoment
-- Responsiv design
-- Dynamiskt innehåll med Twig
+En Symfony-baserad webbplats för redovisningstexter i kursmoment.
+
+## Förberedelser
+
+- Du måste ha PHP installerat i terminalen.
+- Du måste ha Composer, PHP:s pakethanterare, installerad.
 
 ## Installation
 
-Följ dessa steg för att klona repot och köra webbplatsen lokalt:
+Följ dessa steg för att installera och köra webbplatsen lokalt:
 
-1. Klona repot:
+1. **Kopiera koden för övningen till din katalog**:
    ```bash
-   git clone https://github.com/username/mvc-report.git
-   cd mvc-report
+   # Gå till roten av kursens repo
+   rsync -av example/symfony me/kmom01
+   cd me/kmom01/symfony
    ```
 
-2. Installera beroenden:
+2. **Skapa ett Symfony-projekt**:
+   Installera ett projekt-skelett med Composer:
    ```bash
-   composer install
-   npm install
-   npm run dev
+   composer create-project symfony/skeleton:"7.2.*" app
+   cd app
    ```
 
-3. Starta den inbyggda Symfony-servern:
+3. **Installera beroenden**:
+   Slutför installationen av webbapplikationen:
    ```bash
-   symfony server:start
+   composer require webapp
    ```
 
-4. Öppna webbläsaren och navigera till `http://localhost:8888`.
+4. **Verifiera installationen**:
+   Kontrollera vilka paket som är installerade:
+   ```bash
+   composer show
+   ```
 
-## Taggar
-- **1.0.0**: Första versionen av projektet.
+5. **Starta applikationen**:
+   Starta den inbyggda PHP-servern:
+   ```bash
+   php -S localhost:8888 -t public
+   ```
+
+6. **Öppna i webbläsaren**:
+   Navigera till `http://localhost:8888` för att se Symfony-välkomstsidan.

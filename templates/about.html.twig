@@ -3,10 +3,19 @@
 {% block title %}About{% endblock %}
 
 {% block body %}
-    <h1>About</h1>
-    <p>An image which can be clicked on.</p>
-    <p>Länk till <a href="https://github.com/dbwebb-se/mvc">kursens GitHub-repo</a>.</p>
-    <a href="{{ asset('img/github.png') }}">
-        <img src="{{ asset('img/github.png') }}" alt="">
-    </a>
+    <h1>About MVC</h1>
+    <div class="about-container">
+        <div class="about-text">
+            <p>I kursen MVC kommer vi studenter att få lära oss om objektorienterad PHP med webbramverk, enhetstesting och ORM.</p>
+            <p>Syftet med kursen är att självständigt kunna utveckla och driftsätta en webbapplikation där ramverk och objektorienterad PHP är i centrum.</p>
+            <p>I kommande 6 kursmoment så kommer vi få en väldigt stadig grund att kunna fortsätta på i framtiden.</p>
+            <p>Länk till <a href="https://github.com/dbwebb-se/mvc" target="_blank">kursens GitHub-repo</a>.</p>
+            <p>Länk till <a href="https://github.com/dafi-24/mvc" target="_blank">mitt GitHub-repo</a>.</p>
+        </div>
+        <div class="about-image">
+            <a href="{{ asset('img/github.png') }}">
+                <img src="{{ asset('img/github.png') }}" alt="GitHub Logo">
+            </a>
+        </div>
+    </div>
 {% endblock %}

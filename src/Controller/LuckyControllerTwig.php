@@ -26,7 +26,7 @@ class LuckyControllerTwig extends AbstractController
         return $this->render('report.html.twig');
     }
 
-    #[Route("/lucky/number/twig", name: "lucky_number")]
+    #[Route("/lucky", name: "lucky_number")]
     public function number(): Response
     {
         $number = random_int(0, 100);
@@ -36,5 +36,22 @@ class LuckyControllerTwig extends AbstractController
         ];
 
         return $this->render('lucky_number.html.twig', $data);
+    }
+
+    #[Route("/api", name: "api_overview")]
+    public function apiOverview(): Response
+    {
+        $routes = [
+            [
+                'route' => '/api/lucky/number',
+                'description' => 'Returns a random lucky number in JSON format.',
+            ],
+            [
+                'route' => '/api/quote',
+                'description' => 'Returns a JSON quote.',
+            ],
+        ];
+
+        return $this->render('api_overview.html.twig', ['routes' => $routes]);
     }
 }
