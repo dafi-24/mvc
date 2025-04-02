@@ -43,11 +43,11 @@ class LuckyControllerTwig extends AbstractController
     {
         $routes = [
             [
-                'route' => '/api/lucky/number',
+                'name' => 'api_lucky',
                 'description' => 'Returns a random lucky number in JSON format.',
             ],
             [
-                'route' => '/api/quote',
+                'name' => 'api_quote',
                 'description' => 'Returns a JSON quote.',
             ],
         ];

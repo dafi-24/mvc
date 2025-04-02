@@ -13,7 +13,7 @@ class LuckyControllerJson
         date_default_timezone_set('Europe/Stockholm');
     }
 
-    #[Route('/api/lucky/number')]
+    #[Route('/api/lucky/number', name: 'api_lucky')]
     public function jsonNumber(): Response
     {
         $number = random_int(0, 100);
