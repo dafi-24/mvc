@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session Debug{% endblock %}
+
+{% block main %}
+<h1>Session Debug</h1>
+
+<div class="text-container">
+<p>Sessionens innehåll:</p>
+{% if session is empty %}
+    <p>Sessionen är tom.</p>
+{% else %}
+    <pre>{{ session|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+{% endif %}
+</div>
+
+{% endblock %}

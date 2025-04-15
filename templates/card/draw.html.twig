@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dra Kort{% endblock %}
+
+{% block main %}
+<h1>Dra kort</h1>
+
+<div class="text-container">
+{% if drawnCards is not empty %}
+    <p>Dessa kort har dragits:</p>
+    <ul>
+        {% for card in drawnCards %}
+            <li>{{ card }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Inga kort drogs.</p>
+{% endif %}
+
+<p>Kvar i kortleken: {{ cardsLeft }}</p>
+
+<p>För att dra flera kort så skriver du "/nummer" i slutet av URL:en.</p>
+</div>
+
+{% endblock %}

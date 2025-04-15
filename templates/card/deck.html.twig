@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortlek{% endblock %}
+
+{% block main %}
+<h1>Visa Kortleken</h1>
+
+{% for suit, cards in sortedDeck %}
+    <h2>{{ suit|capitalize }}</h2>
+    <div class="text-container">
+        {% for card in cards %}
+            <span style="display: inline-block; margin: 5px; padding: 5px; border: 1px solid #000;">
+                {{ card }}
+            </span>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+{% endblock %}

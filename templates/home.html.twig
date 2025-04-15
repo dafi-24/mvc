@@ -2,11 +2,13 @@
 
 {% block title %}Home{% endblock %}
 
-{% block body %}
-    <h1>Home</h1>
+{% block main %}
+<h1>Home</h1>
+<div class="text-container">
     <p>Hejsan! Jag heter David Fritzson och jag är 26 år gammal. Jag pluggar Webbprogrammering på BTH!</p>
     <p>Jag är född och uppvuxen i Orrefors men för ett par år sen så köpte jag hus i Nybro och det är där jag bor nu.</p>
     <p>Min fritid brukar bestå av att spela discgolf, kolla på Formel 1 samt spendera tid med vänner och familj.</p>
+</div>
     <a href="{{ asset('img/dgdavid.jpg') }}">
         <img src="{{ asset('img/dgdavid.jpg') }}" alt="">
     </a>

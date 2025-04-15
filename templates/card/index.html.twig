@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Home{% endblock %}
+
+{% block main %}
+<h1>Utforska funktionerna</h1>
+<div class="card-list-container">
+    <ul class="card-list">
+        <li><a href="{{ path('card_deck') }}">Visa hela kortleken</a></li>
+        <li><a href="{{ path('card_deck_shuffle') }}">Blanda kortlek</a></li>
+        <li><a href="{{ path('card_deck_draw') }}">Dra ett eller flera kort</a></li>
+        <li><a href="{{ path('session_index') }}">Visa sessionens innehåll</a></li>
+        <li><a href="{{ path('session_delete') }}">Radera sessionen</a></li>
+    </ul>
+</div>
+
+<div class="text-container">
+    <h2>Om mina klasser</h2>
+    <p>Jag har strukturerat min kortapplikation på följande sätt: Jag har en klass, Card, som representerar ett enskilt kort med två huvudsakliga egenskaper, suit (färg) och value (värde).</p>
+    <p>För att underlätta visningen av kortens symboler har jag även lagt till en statisk array, $suitIcons, som associerar varje färg med dess Unicode-symbol.</p>
+    <p>Klassen innehåller metoder för att hämta både färg och värde, samt en metod för att ta fram rätt Unicode-symbol baserat på kortets färg.</p>
+    <p>Utöver detta har jag skapat en klass som heter CardGraphic, vilken ärver från Card. CardGraphic lägger till funktionalitet för att visa kortet som en sträng i Unicode-format genom att kombinera kortets värde med rätt färgsymbol.</p>
+    <p>Dessutom innehåller klassen en __toString-metod, vilket gör det möjligt att direkt skriva ut kortet med dess grafiska representation.</p>
+    <p>För att hantera samlingar av kort har jag också en klass som heter CardHand.</p>
+    <p>Denna klass representerar en hand med kort och innehåller en array av Card-objekt.</p>
+    <p>Här har jag implementerat metoder för att lägga till kort i handen och hämta hela kortsamlingen.</p>
+    <p>Slutligen finns klassen DeckOfCards, som representerar en fullständig kortlek.</p>
+    <p>Denna klass innehåller en array av CardGraphic-objekt, vilket säkerställer att korten i kortleken kan visas med deras grafiska representation.</p>
+    <p>DeckOfCards har metoder för att blanda kortleken, dra ett angivet antal kort, hämta alla kort i leken samt räkna antalet kvarvarande kort.</p>
+    <p>Genom att organisera klasserna på detta sätt skapar jag tydliga relationer mellan dem.</p>
+    <p>CardGraphic är en subklass till Card och utökar den med grafikrelaterad funktionalitet.</p>
+    <p>Både CardHand och DeckOfCards använder komposition eftersom de innehåller samlingar av Card-objekt (eller dess underklass, CardGraphic).</p>
+    <p>Detta upplägg gör att varje del av applikationen har ett tydligt ansvar, vilket bidrar till en ren och effektiv kodstruktur.</p>
+</div>
+
+<a href="{{ asset('img/uml_mvc.png') }}">
+    <img src="{{ asset('img/uml_mvc.png') }}" alt="">
+</a>
+
+{% endblock %}

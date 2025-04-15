@@ -2,15 +2,52 @@
 
 {% block title %}API Overview{% endblock %}
 
-{% block body %}
+{% block main %}
     <h1>API Overview</h1>
-    <p>Här är en sammanställning av alla JSON-routes som erbjuds av webbplatsen:</p>
-    <ul>
-        {% for route in routes %}
-            <li>
-                <strong>Route:</strong> <a href="{{ path(route.name) }}">{{ path(route.name) }}</a><br>
-                <strong>Description:</strong> {{ route.description }}
-            </li>
-        {% endfor %}
-    </ul>
+
+    <div class="api-container">
+        <div class="api-item">
+            <form action="{{ path('api_lucky') }}" method="get">
+                <button type="submit">Visa ett lyckotal</button>
+            </form>
+            <p>Returnerar ett slumpmässigt lyckonummer i JSON-format.</p>
+        </div>
+
+        <div class="api-item">
+            <form action="{{ path('api_quote') }}" method="get">
+                <button type="submit">Visa ett citat</button>
+            </form>
+            <p>Returnerar ett slumpmässigt citat i JSON-format.</p>
+        </div>
+
+        <div class="api-item">
+            <form action="{{ path('api_deck') }}" method="get">
+                <button type="submit">Visa kortleken</button>
+            </form>
+            <p>Returnerar den aktuella kortleken (sorterade).</p>
+        </div>
+
+        <div class="api-item">
+            <form action="{{ path('api_deck_shuffle') }}" method="post">
+                <button type="submit">Blanda kortleken</button>
+            </form>
+            <p>Blandar kortleken och sparar den i sessionen. Returnerar den blandade kortleken.</p>
+        </div>
+
+        <div class="api-item">
+            <form action="{{ path('api_deck_draw_number', {'number': 1}) }}" method="post">
+                <button type="submit">Dra ett kort</button>
+            </form>
+            <p>Drar ett kort från kortleken och returnerar det i JSON-format.</p>
+        </div>
+
+        <div class="api-item">
+            <form action="{{ path('api_deck_form_draw') }}" method="post">
+                <label for="number">Antal kort att dra:</label>
+                <input type="number" id="number" name="number" min="1" value="1" required>
+                <button type="submit">Dra kort</button>
+            </form>
+            <p>Drar valfritt antal kort från kortleken. Returnerar JSON med korten och antal kvarvarande kort.</p>
+        </div>
+    </div>
 {% endblock %}

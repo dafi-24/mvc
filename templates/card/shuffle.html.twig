@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Kortlek - Blanda{% endblock %}
+
+{% block main %}
+<h1>Blandad Kortlek</h1>
+
+<div class="text-container">
+    {% for card in cards %}
+        <span style="display: inline-block; margin: 5px; padding: 5px; border: 1px solid #000;">
+            {{ card }}
+        </span>
+    {% endfor %}
+</div>
+
+{% endblock %}

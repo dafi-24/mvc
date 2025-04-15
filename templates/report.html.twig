@@ -2,8 +2,9 @@
 
 {% block title %}Report{% endblock %}
 
-{% block body %}
-    <h1>Report</h1>
+{% block main %}
+<h1>Report</h1>
+<div class="text-container">
     <h2 id="kmom01">Kmom01</h2>
     <p>I detta kursmoment har vi satt ihop en me-sida med hjälp av Symfony.</p>
     <p>Jag har lite tidigare erfarenhet med objektorientering då vi har jobbat med det innan Python.</p>
@@ -24,7 +25,24 @@
     <p>Mitt "TIL" för detta kursmoment är hur vi använder Symfony för att skapa webbsidor.</p>
     <p>Jag har inte jobbat med Symfony tidigare så det var en ny kunskap att lära sig hur man satte upp det för att det skulle fungera som man ville.</p>
     <h2 id="kmom02">Kmom02</h2>
-    <p>Kmom02 text</p>
+    <p>I detta kursmoment har vi jobbat med klasser i PHP</p>
+    <p>I PHP använder vi arv för att låta en subklass ärva metoder och egenskaper från en basklass genom att skriva "extends", vilket gör att den nya klassen kan använda och eventuellt modifiera funktioner som redan finns definierade i basklassen.</p>
+    <p>Istället för arv kan man med komposition bygga upp objekt genom att inkludera andra objekt som egenskaper, vilket skapar en "har-en" relation där man återanvänder kod utan att nödvändigtvis ärva från en annan klass.</p>
+    <p>Ett interface är i princip ett kontrakt som säger att om man implementerar interfacet med "implements", måste klassen definiera de metoder som interfacet specificerar, utan att ge någon direkt implementation.</p>
+    <p>Och så har vi traits, som liknar en form av återanvändning där man med "use" i en klass inkluderar metoder från en trait, så att flera klasser kan dela samma metoder utan att behöva vara i samma arvskedja.</p>
+    <p>Dessa konstruktioner hjälper oss att skriva ren och modulär kod, vilket gör det enklare att underhålla och utveckla större applikationer.</p>
+    <p>För att lösa denna uppgiften så började jag med att skapa mina klasser, och då följde jag bara kraven och använde övningens klasser för att få en bra start.</p>
+    <p>Efter att klasserna hade en grund så skapade jag min Controller till webbsidorna och börja fylla på dem med datan.</p>
+    <p>Och efter mycket om och men så fick jag något som kallades duga.</p>
+    <p>Jag är faktiskt ganska nöjd med koden som jag fick tillslut. Det känns inte som att jag har någon överdriven kod och allt fungerar som planerat.</p>
+    <p>En förbättringspotential som jag ser är användningen av "riktiga" kort istället för symbolen för korten.</p>
+    <p>Jag tror att användningen av riktiga kort hade lyft webbsidans "värde" och det hade blivit lite snyggare.</p>
+    <p>Av någon anledning så tycker jag att jobba med Symfony och klasser än så länge har varit väldigt krångligt.</p>
+    <p>Jag kan inte sätta punkt på vad exakt det är just nu men det har varit småproblem för mig hela tiden som har dödat lite av motivationen.</p>
+    <p>Men jag tror att ja kommer få bättre koll på allt ju mer vi fortsätter arbeta med det.</p>
+    <p>Mitt "TIL" för detta kursmoment är bara en djupare förståelse av klasser i PHP.</p>
+    <p>Jag var lite orolig i början av kursmomentet att dessa klasser skulle vara helt annorlunda från de jag har lärt mig i tidigare kurser.</p>
+    <p>Till min lättnad så var det väldigt likt i strukturen till de som jag redan har arbetat med.</p>
     <h2 id="kmom03">Kmom03</h2>
     <p>Kmom03 text</p>
     <h2 id="kmom04">Kmom04</h2>
@@ -35,4 +53,5 @@
     <p>Kmom06 text</p>
     <h2 id="kmom07">Kmom07/10</h2>
     <p>Kmom07/10 text</p>
+</div>
 {% endblock %}
