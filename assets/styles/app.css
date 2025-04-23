@@ -294,3 +294,33 @@ h1, h2 {
     color: #1a1a1a;
     margin-bottom: 20px;
 }
+
+.code-container {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-family: Menlo, Consolas, monospace;
+    margin-bottom: 2rem;
+}
+.code-container h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+.code-container pre {
+    margin: 0;
+}
+
+.class-list {
+    list-style-type: disc;
+    margin: 1em 0;
+    padding-left: 1.5em;
+    font-family: Arial, sans-serif;
+  }
+  .class-list li {
+    margin-bottom: 0.5em;
+  }
+  .class-list li .classname {
+    font-weight: bold;
+  }

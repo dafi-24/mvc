@@ -1,9 +1,74 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Blackjack{% endblock %}
+{% block title %}Blackjack – Dokumentation{% endblock %}
 
 {% block main %}
-<a href="{{ asset('img/mvc_flöde.png') }}">
-    <img src="{{ asset('img/mvc_flöde.png') }}" alt="">
-</a>
+    <h1>Blackjack-spelets dokumentation</h1>
+    <h2>Flödesschema</h2>
+    <a href="{{ asset('img/mvc_flöde.png') }}">
+        <img src="{{ asset('img/mvc_flöde.png') }}" alt="MVC-flöde">
+    </a>
+
+    <h2>Psudokod för översikt av Blackjack</h2>
+    <div class="code-container">
+        <pre><code>
+        SEQUENCE
+        BEGIN
+            CALL CreateDeck RETURNING deck
+            CALL deck.shuffle
+            SET playerHand TO empty list
+            SET dealerHand TO empty list
+
+            FOR i = 1 to 2
+                CALL deck.draw RETURNING card
+                CALL playerHand.add WITH card
+                CALL deck.draw RETURNING card
+                CALL dealerHand.add WITH card
+            ENDFOR
+
+            CALL playerTurn WITH deck, playerHand RETURNING playerStatus
+            IF playerStatus = "bust" THEN
+                RETURN "Dealer wins – player busts"
+            END IF
+
+            CALL dealerTurn WITH deck, dealerHand RETURNING dealerHand
+
+            SET playerValue TO CALL calculateValue WITH playerHand
+            SET dealerValue TO CALL calculateValue WITH dealerHand
+
+            IF dealerValue > 21 THEN
+                RETURN "Player wins – dealer busts"
+            ELSE IF playerValue > dealerValue THEN
+                RETURN "Player wins"
+            ELSE IF playerValue < dealerValue THEN
+                RETURN "Dealer wins"
+            ELSE
+                RETURN "Draw"
+            END IF
+        END
+        </code></pre>
+    </div>
+
+    <h2>Klasser till Blackjack</h2>
+    <div class="text-container">
+        <p>Dessa klasser är utöver det som jag redan har skapat till Card</p>
+        <ul class="class-list">
+            <li>
+            <span class="classname">Player</span>
+            <span class="purpose">– Modell för spelaren, med hand och logik för “hit”/“stand”-val.</span>
+            </li>
+            <li>
+            <span class="classname">Dealer</span>
+            <span class="purpose">– Specialiserad spelare som automatiskt drar kort tills värdet är lika med eller mer än 17.</span>
+            </li>
+            <li>
+            <span class="classname">BlackjackGame</span>
+            <span class="purpose">– Spel-motor som orkestrerar initiering, turordning och avgör vinnare.</span>
+            </li>
+            <li>
+            <span class="classname">GameController</span>
+            <span class="purpose">– Symfony-controller som kopplar HTTP-routes till spel-motor och vyer.</span>
+            </li>
+        </ul>
+    </div>
 {% endblock %}
