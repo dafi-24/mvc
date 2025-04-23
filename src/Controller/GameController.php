@@ -19,4 +19,10 @@ class GameController extends AbstractController
     {
         return $this->render('game/start.html.twig');
     }
+
+    #[Route('/game/doc', name: 'game_doc')]
+    public function doc(): Response
+    {
+        return $this->render('game/doc.html.twig');
+    }
 }

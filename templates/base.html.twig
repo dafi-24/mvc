@@ -47,7 +47,13 @@
                         <li><a href="{{ path('session_delete') }}">Rensa session</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ path('game_home') }}">Kortspel</a></li>
+                <li class="dropdown">
+                    <a href="{{ path('game_home') }}" class="dropdown-toggle">Blackjack</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('game_start') }}">Starta Spel</a></li>
+                        <li><a href="{{ path('game_doc') }}">Doc</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         {% block main %}{% endblock %}

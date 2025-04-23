@@ -1,9 +1,16 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Kortspel{% endblock %}
+{% block title %}Blackjack{% endblock %}
 
 {% block main %}
-
+<div class="text-container">
+    <h1>Välkommen till Blackjack!</h1>
+    <p>Blackjack är ett kortspel där spelaren möter dealern och målet är att få en hand med totalt högre värde än dealerns utan att överstiga 21.</p>
+    <p>Kort 2–10 har sitt nominella värde, klädda kort (knekt, dam, kung) är värda 10 och ess kan vara 1 eller 11, beroende på vad som är mest fördelaktigt.</p>
+    Spelaren får två kort och kan välja att “stanna” (behålla handen) eller “träffa” (ta ytterligare kort) för att närma sig 21.</p> 
+    <p>Om handen överstiger 21 förlorar spelaren automatiskt (“bust”).</p> 
+    <p>Dealern drar kort enligt fasta regler (oftast hit på 16 eller lägre, stand på 17 eller högre).</p>
+</div>
 
 <a href="{{ path('game_start') }}" class="btn btn-primary">Starta spelet</a>
 {% endblock %}
