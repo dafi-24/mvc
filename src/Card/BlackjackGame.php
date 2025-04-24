@@ -1,8 +1,6 @@
 <?php
-// src/Card/BlackjackGame.php
 namespace App\Card;
 
-// Spelmotor som sköter dealing, turordning och resultat
 class BlackjackGame
 {
     private DeckOfCards $deck;
@@ -16,7 +14,6 @@ class BlackjackGame
         $this->dealer = new Dealer();
     }
 
-    /** Initierar lek, blandar och delar ut 2 kort var */
     public function start(): void
     {
         $this->deck->shuffle();
@@ -28,7 +25,6 @@ class BlackjackGame
         }
     }
 
-    /** Kör spelarens tur och returnerar false om bust */
     public function playerTurn(string $choice): bool
     {
         if ($choice === 'hit') {
@@ -39,13 +35,11 @@ class BlackjackGame
         return true;
     }
 
-    /** Kör dealer-logik */
     public function dealerTurn(): void
     {
         $this->dealer->playTurn($this->deck);
     }
 
-    /** Jämför poäng och returnerar resultat-sträng */
     public function determineWinner(): string
     {
         $pv = $this->player->getValue();

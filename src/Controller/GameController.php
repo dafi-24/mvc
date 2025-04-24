@@ -1,5 +1,4 @@
 <?php
-// src/Controller/GameController.php
 namespace App\Controller;
 
 use App\Card\BlackjackGame;
