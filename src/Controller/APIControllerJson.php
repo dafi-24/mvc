@@ -147,4 +147,60 @@ class APIControllerJson extends AbstractController
 
         return $this->redirectToRoute('api_deck_draw_number', ['number' => $number]);
     }
+
+    #[Route('/api/game', name: 'api_game', methods: ['GET'])]
+    public function gameStatus(SessionInterface $session): JsonResponse
+    {
+        $game = $session->get('game');
+
+        if (!$game) {
+            return new JsonResponse([
+                'error' => 'Spelet har inte startats. Gå till /game/start för att starta spelet.',
+            ], JsonResponse::HTTP_BAD_REQUEST);
+        }
+
+        $playerHand = $game->getPlayer()->getHand()->getHand();
+        $dealerHand = $game->getDealer()->getHand()->getHand();
+        $playerValue = $game->getPlayer()->getValue();
+        $dealerValue = $game->getDealer()->getValue();
+
+        $data = [
+            'player' => [
+                'hand' => array_map(fn($card) => $card->getUnicode(), $playerHand),
+                'value' => $playerValue,
+            ],
+            'dealer' => [
+                'hand' => array_map(fn($card) => $card->getUnicode(), $dealerHand),
+                'value' => $dealerValue,
+            ],
+            'result' => $game->determineWinner(),
+        ];
+    
+        return new JsonResponse($data, JsonResponse::HTTP_OK);
+    }
+
+    private function calculateHandValue(array $hand): int
+    {
+        $value = 0;
+        $aces = 0;
+
+        foreach ($hand as $card) {
+            $cardValue = $card->getValue();
+            if (is_numeric($cardValue)) {
+                $value += (int) $cardValue;
+            } elseif (in_array($cardValue, ['J', 'Q', 'K'])) {
+                $value += 10;
+            } elseif ($cardValue === 'A') {
+                $aces++;
+                $value += 11;
+            }
+        }
+
+        while ($value > 21 && $aces > 0) {
+            $value -= 10;
+            $aces--;
+        }
+
+        return $value;
+    }
 }

@@ -49,5 +49,12 @@
             </form>
             <p>Drar valfritt antal kort från kortleken. Returnerar JSON med korten och antal kvarvarande kort.</p>
         </div>
+
+        <div class="api-item">
+            <form action="{{ path('api_game') }}" method="get">
+                <button type="submit">Visa aktuell ställning för Blackjack</button>
+            </form>
+            <p>Returnerar den aktuella ställningen för spelet i JSON-format.</p>
+        </div>
     </div>
 {% endblock %}
