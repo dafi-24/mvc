@@ -538,6 +538,17 @@ h1, h2 {
     transform: translateY(-2px);
 }
 
+.controls a.btn-double {
+    background-color: #0d10ca;
+    color: white;
+    border: none;
+}
+
+.controls a.btn-double:hover {
+    background-color: #1b00b3;
+    transform: translateY(-2px);
+}
+
 .result-message {
     margin: 20px auto;
     padding: 15px;

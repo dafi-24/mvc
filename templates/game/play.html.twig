@@ -38,6 +38,7 @@
     {% if app.request.get('_route') != 'game_result' %}
       <a href="{{ path('game_hit') }}" class="btn btn-primary">Hit</a>
       <a href="{{ path('game_stand') }}" class="btn btn-secondary">Stand</a>
+      <a href="{{ path('game_double') }}" class="btn btn-double">Double Down</a>
     {% else %}
       <a href="{{ path('game_start') }}" class="btn btn-success">Spela igen</a>
     {% endif %}

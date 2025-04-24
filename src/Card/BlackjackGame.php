@@ -32,6 +32,11 @@ class BlackjackGame
             $this->player->hit($cards[0]);
             return ! $this->player->isBust();
         }
+        if ($choice === 'double') {
+            $this->doubled = true;
+            $this->player->hit(...$this->deck->draw(1));
+            return ! $this->player->isBust();
+        }
         return true;
     }
 

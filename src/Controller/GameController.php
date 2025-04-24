@@ -63,6 +63,20 @@ class GameController extends AbstractController
         return $this->redirectToRoute('game_result');
     }
 
+    #[Route('/game/double', name: 'game_double')]
+    public function double(SessionInterface $session): Response
+    {
+        $game = $session->get('game');
+
+        $alive = $game->playerTurn('double');
+        if ($alive) {
+            $game->dealerTurn();
+        }
+
+        $session->set('game', $game);
+        return $this->redirectToRoute('game_result');
+    }
+
     #[Route('/game/result', name: 'game_result')]
     public function result(SessionInterface $session): Response
     {
