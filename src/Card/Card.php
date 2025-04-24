@@ -34,4 +34,9 @@ class Card
     {
         return self::$suitIcons[$suit] ?? $suit;
     }
+
+    public function getColor(): string
+    {
+        return in_array($this->suit, ['hearts', 'diamonds']) ? 'red' : 'black';
+    }
 }

@@ -24,11 +24,6 @@ class CardController extends AbstractController
     {
         $sessionData = $session->all();
 
-        if (isset($sessionData['card_deck'])) {
-            $deck = $sessionData['card_deck'];
-            $sessionData['card_deck'] = array_map(fn ($card) => (string) $card, $deck->getCards());
-        }
-
         return $this->render('card/session.html.twig', [
             'session' => $sessionData,
         ]);

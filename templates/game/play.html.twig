@@ -14,7 +14,7 @@
           {% if loop.first and app.request.get('_route') != 'game_result' %}
             <li>🂠 (dolt kort)</li>
           {% else %}
-            <li>{{ card }}</li>
+            <li>{{ card.getColoredUnicode()|raw }}</li>
           {% endif %}
         {% endfor %}
       </ul>
@@ -27,7 +27,7 @@
       <h2>Player</h2>
       <ul>
         {% for card in playerHand %}
-          <li>{{ card }}</li>
+          <li>{{ card.getColoredUnicode()|raw }}</li>
         {% endfor %}
       </ul>
       <p>Poäng: {{ playerValue }}</p>

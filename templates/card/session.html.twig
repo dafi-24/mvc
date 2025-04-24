@@ -6,12 +6,15 @@
 <h1>Session Debug</h1>
 
 <div class="text-container">
-<p>Sessionens innehåll:</p>
-{% if session is empty %}
-    <p>Sessionen är tom.</p>
-{% else %}
-    <pre>{{ session|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
-{% endif %}
+    <p>Sessionens innehåll:</p>
+    {% if session.card_deck is defined %}
+        <p>Antal kort kvar i leken: {{ session.card_deck.cards|length }}</p>
+        <ul class="card-deck">
+            {% for card in session.card_deck.cards %}
+                <li>{{ card.getColoredUnicode()|raw }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 </div>
 
 {% endblock %}

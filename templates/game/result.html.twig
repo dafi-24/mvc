@@ -11,7 +11,7 @@
       <ul>
         {# Visa alla dealer-kort #}
         {% for card in dealerHand %}
-          <li>{{ card }}</li>
+          <li>{{ card.getColoredUnicode()|raw }}</li>
         {% endfor %}
       </ul>
       <p><strong>Poäng: {{ dealerValue }}</strong></p>
@@ -21,7 +21,7 @@
       <h2>Spelare</h2>
       <ul>
         {% for card in playerHand %}
-          <li>{{ card }}</li>
+          <li>{{ card.getColoredUnicode()|raw }}</li>
         {% endfor %}
       </ul>
       <p><strong>Poäng: {{ playerValue }}</strong></p>
