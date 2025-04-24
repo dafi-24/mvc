@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Blackjack – Resultat{% endblock %}
+
+{% block main %}
+  <h1>Resultat</h1>
+
+  <div class="hands">
+    <section class="hand">
+      <h2>Dealer</h2>
+      <ul>
+        {# Visa alla dealer-kort #}
+        {% for card in dealerHand %}
+          <li>{{ card }}</li>
+        {% endfor %}
+      </ul>
+      <p><strong>Poäng: {{ dealerValue }}</strong></p>
+    </section>
+
+    <section class="hand">
+      <h2>Spelare</h2>
+      <ul>
+        {% for card in playerHand %}
+          <li>{{ card }}</li>
+        {% endfor %}
+      </ul>
+      <p><strong>Poäng: {{ playerValue }}</strong></p>
+    </section>
+  </div>
+
+  <div class="result-message">
+    <h3>{{ result }}</h3>
+  </div>
+
+  <div class="controls">
+    <a href="{{ path('game_start') }}" class="btn btn-success">Spela igen</a>
+    <a href="{{ path('game_home') }}" class="btn btn-secondary">Till startsidan</a>
+  </div>
+{% endblock %}

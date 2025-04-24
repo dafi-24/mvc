@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Spela Blackjack{% endblock %}
+
+{% block main %}
+  <h1>Blackjack</h1>
+
+  <div class="hands">
+    <section class="hand">
+      <h2>Dealer</h2>
+      <ul>
+        {# Dölj första kortet tills resultaten visas #}
+        {% for card in dealerHand %}
+          {% if loop.first and app.request.get('_route') != 'game_result' %}
+            <li>🂠 (dolt kort)</li>
+          {% else %}
+            <li>{{ card }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% if app.request.get('_route') == 'game_result' %}
+        <p>Poäng: {{ dealerValue }}</p>
+      {% endif %}
+    </section>
+
+    <section class="hand">
+      <h2>Player</h2>
+      <ul>
+        {% for card in playerHand %}
+          <li>{{ card }}</li>
+        {% endfor %}
+      </ul>
+      <p>Poäng: {{ playerValue }}</p>
+    </section>
+  </div>
+
+  <div class="controls">
+    {% if app.request.get('_route') != 'game_result' %}
+      <a href="{{ path('game_hit') }}" class="btn btn-primary">Hit</a>
+      <a href="{{ path('game_stand') }}" class="btn btn-secondary">Stand</a>
+    {% else %}
+      <a href="{{ path('game_start') }}" class="btn btn-success">Spela igen</a>
+    {% endif %}
+    <a href="{{ path('game_home') }}" class="btn btn-link">Avbryt</a>
+  </div>
+{% endblock %}
