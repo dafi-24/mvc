@@ -4,7 +4,7 @@ namespace App\Dice;
 
 class Dice
 {
-    protected $value;
+    protected ?int $value;
 
     public function __construct()
     {
@@ -19,7 +19,7 @@ class Dice
 
     public function getValue(): int
     {
-        return $this->value;
+        return $this->value ?? 0;
     }
 
     public function getAsString(): string

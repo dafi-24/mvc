@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Card;
 
 class BlackjackGame
@@ -33,7 +34,6 @@ class BlackjackGame
             return ! $this->player->isBust();
         }
         if ($choice === 'double') {
-            $this->doubled = true;
             $this->player->hit(...$this->deck->draw(1));
             return ! $this->player->isBust();
         }
@@ -47,21 +47,27 @@ class BlackjackGame
 
     public function determineWinner(): string
     {
-        $pv = $this->player->getValue();
-        $dv = $this->dealer->getValue();
+        $playervalue = $this->player->getValue();
+        $dealervalue = $this->dealer->getValue();
 
-        if ($pv > 21) {
+        if ($playervalue > 21) {
             return 'Dealer wins – player busts';
         }
-        if ($dv > 21 || $pv > $dv) {
+        if ($dealervalue > 21 || $playervalue > $dealervalue) {
             return 'Player wins';
         }
-        if ($pv < $dv) {
+        if ($playervalue < $dealervalue) {
             return 'Dealer wins';
         }
         return 'Draw';
     }
 
-    public function getPlayer(): Player { return $this->player; }
-    public function getDealer(): Dealer { return $this->dealer; }
+    public function getPlayer(): Player
+    {
+        return $this->player;
+    }
+    public function getDealer(): Dealer
+    {
+        return $this->dealer;
+    }
 }

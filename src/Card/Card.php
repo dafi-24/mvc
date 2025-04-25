@@ -7,6 +7,9 @@ class Card
     protected string $suit;
     protected string $value;
 
+    /**
+     * @var array<string, string>
+     */
     protected static array $suitIcons = [
         'spades' => '♠',
         'hearts' => '♥',

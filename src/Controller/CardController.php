@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Card\DeckOfCards;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -43,12 +44,12 @@ class CardController extends AbstractController
         if (!$session->has('card_deck')) {
             $deck = new DeckOfCards();
             $session->set('card_deck', $deck);
-        } else {
-            $deck = $session->get('card_deck');
         }
 
+        $deck = $session->get('card_deck');
         $cards = $deck->getCards();
         $sorted = [];
+
         foreach ($cards as $card) {
             $sorted[$card->getSuit()][] = $card;
         }
@@ -77,10 +78,9 @@ class CardController extends AbstractController
         if (!$session->has('card_deck')) {
             $deck = new DeckOfCards();
             $session->set('card_deck', $deck);
-        } else {
-            $deck = $session->get('card_deck');
         }
 
+        $deck = $session->get('card_deck');
         $drawn = $deck->draw(1);
         $session->set('card_deck', $deck);
 
@@ -94,16 +94,15 @@ class CardController extends AbstractController
     public function deckDrawNumber(int $number, SessionInterface $session): Response
     {
         if ($number > 52) {
-            throw new \Exception("Du kan inte dra mer än antalet kort i leken!");
+            throw new Exception("Du kan inte dra mer än antalet kort i leken!");
         }
 
         if (!$session->has('card_deck')) {
             $deck = new DeckOfCards();
             $session->set('card_deck', $deck);
-        } else {
-            $deck = $session->get('card_deck');
         }
 
+        $deck = $session->get('card_deck');
         $drawn = $deck->draw($number);
         $session->set('card_deck', $deck);
 

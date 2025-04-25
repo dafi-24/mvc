@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Card\DeckOfCards;
+use App\Card\CardGraphic;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -74,10 +75,9 @@ class APIControllerJson extends AbstractController
         if (!$session->has('card_deck')) {
             $deck = new DeckOfCards();
             $session->set('card_deck', $deck);
-        } else {
-            $deck = $session->get('card_deck');
         }
 
+        $deck = $session->get('card_deck');
         $valueOrder = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
         $sortedDeck = [];
@@ -85,9 +85,9 @@ class APIControllerJson extends AbstractController
             $sortedDeck[$card->getSuit()][] = $card;
         }
 
-        foreach ($sortedDeck as $suit => &$cards) {
-            usort($cards, function ($a, $b) use ($valueOrder) {
-                return array_search($a->getValue(), $valueOrder) <=> array_search($b->getValue(), $valueOrder);
+        foreach ($sortedDeck as &$cards) {
+            usort($cards, function ($cardA, $cardB) use ($valueOrder) {
+                return array_search($cardA->getValue(), $valueOrder) <=> array_search($cardB->getValue(), $valueOrder);
             });
 
             $cards = array_map(fn ($card) => $card->getUnicode(), $cards);
@@ -103,7 +103,10 @@ class APIControllerJson extends AbstractController
         $deck->shuffle();
         $session->set('card_deck', $deck);
 
-        $shuffledDeck = array_map(fn ($card) => $card->getUnicode(), $deck->getCards());
+        $shuffledDeck = array_map(
+            fn ($card) => (new CardGraphic($card->getSuit(), $card->getValue()))->getUnicode(),
+            $deck->getCards()
+        );
 
         return new JsonResponse($shuffledDeck, JsonResponse::HTTP_OK);
     }
@@ -116,9 +119,9 @@ class APIControllerJson extends AbstractController
         if (!$session->has('card_deck')) {
             $deck = new DeckOfCards();
             $session->set('card_deck', $deck);
-        } else {
-            $deck = $session->get('card_deck');
         }
+
+        $deck = $session->get('card_deck');
 
         if ($number > $deck->cardsLeft()) {
             return new JsonResponse(
@@ -166,41 +169,17 @@ class APIControllerJson extends AbstractController
 
         $data = [
             'player' => [
-                'hand' => array_map(fn($card) => $card->getUnicode(), $playerHand),
+                'hand' => array_map(fn ($card) => $card->getUnicode(), $playerHand),
                 'value' => $playerValue,
             ],
             'dealer' => [
-                'hand' => array_map(fn($card) => $card->getUnicode(), $dealerHand),
+                'hand' => array_map(fn ($card) => $card->getUnicode(), $dealerHand),
                 'value' => $dealerValue,
             ],
             'result' => $game->determineWinner(),
         ];
-    
+
         return new JsonResponse($data, JsonResponse::HTTP_OK);
     }
 
-    private function calculateHandValue(array $hand): int
-    {
-        $value = 0;
-        $aces = 0;
-
-        foreach ($hand as $card) {
-            $cardValue = $card->getValue();
-            if (is_numeric($cardValue)) {
-                $value += (int) $cardValue;
-            } elseif (in_array($cardValue, ['J', 'Q', 'K'])) {
-                $value += 10;
-            } elseif ($cardValue === 'A') {
-                $aces++;
-                $value += 11;
-            }
-        }
-
-        while ($value > 21 && $aces > 0) {
-            $value -= 10;
-            $aces--;
-        }
-
-        return $value;
-    }
 }

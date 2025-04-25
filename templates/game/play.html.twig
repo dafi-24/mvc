@@ -12,7 +12,7 @@
         {# Dölj första kortet tills resultaten visas #}
         {% for card in dealerHand %}
           {% if loop.first and app.request.get('_route') != 'game_result' %}
-            <li>🂠 (dolt kort)</li>
+            <li>🂠</li>
           {% else %}
             <li>{{ card.getColoredUnicode()|raw }}</li>
           {% endif %}

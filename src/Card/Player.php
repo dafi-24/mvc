@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Card;
 
 use App\Card\CardGraphic;
@@ -7,14 +8,14 @@ use App\Card\CardHand;
 
 class Player
 {
-    private $hand;
+    private CardHand $hand;
 
     public function __construct()
     {
         $this->hand = new CardHand();
     }
 
-    public function hit(CardGraphic $card): void
+    public function hit(Card $card): void
     {
         $this->hand->add($card);
     }
