@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1746443432">
-  <project timestamp="1746443432">
+<coverage generated="1746454053">
+  <project timestamp="1746454053">
     <file name="/home/feedux/dbwebb-kurser/mvc/me/report/src/Card/BlackjackGame.php">
       <class name="App\Card\BlackjackGame" namespace="global">
         <metrics complexity="14" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="36" coveredelements="36"/>
@@ -9,13 +9,13 @@
       <line num="23" type="stmt" count="10"/>
       <line num="24" type="stmt" count="10"/>
       <line num="25" type="stmt" count="10"/>
-      <line num="33" type="method" name="start" visibility="public" complexity="2" crap="2" count="10"/>
-      <line num="35" type="stmt" count="10"/>
-      <line num="36" type="stmt" count="10"/>
-      <line num="37" type="stmt" count="10"/>
-      <line num="38" type="stmt" count="10"/>
-      <line num="39" type="stmt" count="10"/>
-      <line num="40" type="stmt" count="10"/>
+      <line num="33" type="method" name="start" visibility="public" complexity="2" crap="2" count="8"/>
+      <line num="35" type="stmt" count="8"/>
+      <line num="36" type="stmt" count="8"/>
+      <line num="37" type="stmt" count="8"/>
+      <line num="38" type="stmt" count="8"/>
+      <line num="39" type="stmt" count="8"/>
+      <line num="40" type="stmt" count="8"/>
       <line num="50" type="method" name="playerTurn" visibility="public" complexity="3" crap="3" count="3"/>
       <line num="52" type="stmt" count="3"/>
       <line num="53" type="stmt" count="1"/>
@@ -94,13 +94,13 @@
       <line num="37" type="stmt" count="13"/>
       <line num="38" type="stmt" count="10"/>
       <line num="39" type="stmt" count="10"/>
-      <line num="40" type="stmt" count="8"/>
+      <line num="40" type="stmt" count="6"/>
       <line num="41" type="stmt" count="5"/>
       <line num="42" type="stmt" count="5"/>
       <line num="43" type="stmt" count="5"/>
       <line num="47" type="stmt" count="14"/>
-      <line num="48" type="stmt" count="3"/>
-      <line num="49" type="stmt" count="3"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="49" type="stmt" count="1"/>
       <line num="52" type="stmt" count="14"/>
       <line num="55" type="method" name="isBust" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="57" type="stmt" count="2"/>
@@ -128,8 +128,8 @@
       <line num="27" type="stmt" count="15"/>
       <line num="28" type="stmt" count="15"/>
       <line num="29" type="stmt" count="15"/>
-      <line num="34" type="method" name="shuffle" visibility="public" complexity="1" crap="1" count="11"/>
-      <line num="36" type="stmt" count="11"/>
+      <line num="34" type="method" name="shuffle" visibility="public" complexity="1" crap="1" count="9"/>
+      <line num="36" type="stmt" count="9"/>
       <line num="45" type="method" name="draw" visibility="public" complexity="1" crap="1" count="12"/>
       <line num="47" type="stmt" count="12"/>
       <line num="55" type="method" name="getCards" visibility="public" complexity="1" crap="1" count="4"/>

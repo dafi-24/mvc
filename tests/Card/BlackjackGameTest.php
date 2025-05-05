@@ -24,10 +24,20 @@ class BlackjackGameTest extends TestCase
     public function testPlayerTurnHitAddsCard(): void
     {
         $game = new BlackjackGame();
-        $game->start();
+
+        $hand = new CardHand();
+        $hand->add(new CardGraphic('hearts', '2'));
+        $hand->add(new CardGraphic('spades', '3'));
+
+        $ref = new ReflectionClass(Player::class);
+        $prop = $ref->getProperty('hand');
+        $prop->setAccessible(true);
+        $prop->setValue($game->getPlayer(), $hand);
 
         $initial = count($game->getPlayer()->getHand()->getHand());
+
         $res = $game->playerTurn('hit');
+
         $this->assertTrue($res);
         $this->assertCount($initial + 1, $game->getPlayer()->getHand()->getHand());
     }
@@ -35,10 +45,19 @@ class BlackjackGameTest extends TestCase
     public function testPlayerTurnDoubleAddsCard(): void
     {
         $game = new BlackjackGame();
-        $game->start();
+
+        $hand = new CardHand();
+        $hand->add(new CardGraphic('hearts', '2'));
+        $hand->add(new CardGraphic('spades', '3'));
+
+        $ref = new ReflectionClass(Player::class);
+        $prop = $ref->getProperty('hand');
+        $prop->setAccessible(true);
+        $prop->setValue($game->getPlayer(), $hand);
 
         $initial = count($game->getPlayer()->getHand()->getHand());
         $res = $game->playerTurn('double');
+
         $this->assertTrue($res);
         $this->assertCount($initial + 1, $game->getPlayer()->getHand()->getHand());
     }
