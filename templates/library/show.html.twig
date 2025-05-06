@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+  <h2>{{ book.titel }}</h2>
+  <p><strong>Författare:</strong> {{ book.author }}</p>
+  <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+  {% if book.imageUrl %}
+  <img src="{{ asset('uploads/' ~ book.imageUrl) }}"
+    alt="Omslag för {{ book.titel }}"
+    style="max-width:200px">
+  {% endif %}
+{% endblock %}

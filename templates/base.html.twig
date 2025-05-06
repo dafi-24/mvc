@@ -54,6 +54,13 @@
                         <li><a href="{{ path('game_doc') }}">Doc</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="{{ path('app_library') }}" class="dropdown-toggle">Library</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('library_list') }}">Visa alla böcker</a></li>
+                        <li><a href="{{ path('library_create') }}">Lägg till ny bok</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         {% block main %}{% endblock %}

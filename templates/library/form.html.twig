@@ -1,18 +1,60 @@
 {% extends 'base.html.twig' %}
 {% block main %}
-  <h2>{{ action }} bok</h2>
-  <form method="post" action="{{ form_action }}">
-    <label for="title">Titel</label>
-    <input type="text" id="title" name="title" value="{{ book ? book.title : '' }}" required>
+  <h2>{{ action }}</h2>
+  <form 
+    method="post" 
+    action="{{ form_action }}" 
+    class="book-form"
+    enctype="multipart/form-data"
+  >
+    <label for="titel">Titel</label>
+    <input 
+      type="text" 
+      id="titel" 
+      name="titel" 
+      value="{{ book ? book.titel : '' }}" 
+      required
+    >
 
     <label for="author">Författare</label>
-    <input type="text" id="author" name="author" value="{{ book ? book.author : '' }}" required>
+    <input 
+      type="text" 
+      id="author" 
+      name="author" 
+      value="{{ book ? book.author : '' }}" 
+      required
+    >
 
     <label for="isbn">ISBN</label>
-    <input type="text" id="isbn" name="isbn" value="{{ book ? book.isbn : '' }}" required>
+    <input 
+      type="text" 
+      id="isbn" 
+      name="isbn" 
+      value="{{ book ? book.isbn : '' }}" 
+      required
+    >
 
-    <label for="imageUrl">Bild‐URL</label>
-    <input type="text" id="imageUrl" name="imageUrl" value="{{ book ? book.imageUrl : '' }}">
+    <label for="imageFile">Omslagsbild</label>
+
+    {# Om vi är i edit‑läge, visa befintlig bild #}
+    {% if book and book.imageUrl %}
+      <div class="current-image">
+        <p>Nuvarande omslag:</p>
+        <img 
+          src="{{ asset('uploads/' ~ book.imageUrl) }}" 
+          alt="Omslag för {{ book.titel }}" 
+          style="max-width:150px; display:block; margin-bottom:8px;"
+        >
+      </div>
+    {% endif %}
+
+    <input 
+      type="file" 
+      id="imageFile" 
+      name="imageFile" 
+      accept="image/*"
+      {{ book is not defined ? 'required' : '' }}
+    >
 
     <button type="submit">{{ action }}</button>
   </form>

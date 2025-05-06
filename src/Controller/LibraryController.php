@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Library;
-use App\Repository\LibraryRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\LibraryRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class LibraryController extends AbstractController
 {
@@ -46,19 +49,33 @@ class LibraryController extends AbstractController
     {
         if ($request->isMethod('POST')) {
             $data = $request->request;
+            /** @var UploadedFile $imageFile */
+            $imageFile = $request->files->get('imageFile');
+    
             $book = new Library();
-            $book->setTitle($data->get('title'));
+            $book->setTitel($data->get('title'));
             $book->setIsbn($data->get('isbn'));
             $book->setAuthor($data->get('author'));
-            $book->setImageUrl($data->get('imageUrl'));
+    
+            if ($imageFile) {
+                $uploadsDir = $this->getParameter('kernel.project_dir') . '/public/uploads';
+                $newFilename = uniqid() . '.' . $imageFile->guessExtension();
+    
+                try {
+                    $imageFile->move($uploadsDir, $newFilename);
+                } catch (FileException $e) {
+                }
 
+                $book->setImageUrl($newFilename);
+            }
+    
             $em = $doctrine->getManager();
             $em->persist($book);
             $em->flush();
-
+    
             return $this->redirectToRoute('library_list');
         }
-
+    
         return $this->render('library/form.html.twig', [
             'action'      => 'Skapa bok',
             'book'        => null,
