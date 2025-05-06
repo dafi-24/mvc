@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block main %}
+  <h2>{{ action }} bok</h2>
+  <form method="post" action="{{ form_action }}">
+    <label for="title">Titel</label>
+    <input type="text" id="title" name="title" value="{{ book ? book.title : '' }}" required>
+
+    <label for="author">Författare</label>
+    <input type="text" id="author" name="author" value="{{ book ? book.author : '' }}" required>
+
+    <label for="isbn">ISBN</label>
+    <input type="text" id="isbn" name="isbn" value="{{ book ? book.isbn : '' }}" required>
+
+    <label for="imageUrl">Bild‐URL</label>
+    <input type="text" id="imageUrl" name="imageUrl" value="{{ book ? book.imageUrl : '' }}">
+
+    <button type="submit">{{ action }}</button>
+  </form>
+{% endblock %}
