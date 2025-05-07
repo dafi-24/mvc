@@ -77,7 +77,7 @@ class LibraryController extends AbstractController
         }
     
         return $this->render('library/form.html.twig', [
-            'action'      => 'Skapa bok',
+            'action'      => 'Lägg till bok',
             'book'        => null,
             'form_action' => $this->generateUrl('library_create'),
         ]);
