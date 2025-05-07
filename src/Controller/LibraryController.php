@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class LibraryController extends AbstractController
 {
@@ -33,12 +35,14 @@ class LibraryController extends AbstractController
     }
 
     #[Route('/library/show/{id}', name: 'library_show', requirements: ['id' => '\d+'])]
-    public function show(LibraryRepository $repo, int $id): Response
+    public function show(LibraryRepository $repo, int $id, RequestStack $requestStack): Response
     {
         $book = $repo->find($id);
+
         if (!$book) {
-            throw $this->createNotFoundException('Boken hittades ej');
+            return $this->redirectToRoute('library_list');
         }
+
         return $this->render('library/show.html.twig', [
             'book' => $book,
         ]);
@@ -53,11 +57,11 @@ class LibraryController extends AbstractController
             $imageFile = $request->files->get('imageFile');
     
             $book = new Library();
-            $book->setTitel($data->get('title'));
+            $book->setTitel($data->get('titel'));
             $book->setIsbn($data->get('isbn'));
             $book->setAuthor($data->get('author'));
     
-            if ($imageFile) {
+            if ($imageFile && $imageFile->isValid()) {
                 $uploadsDir = $this->getParameter('kernel.project_dir') . '/public/uploads';
                 $newFilename = uniqid() . '.' . $imageFile->guessExtension();
     
@@ -93,10 +97,9 @@ class LibraryController extends AbstractController
 
         if ($request->isMethod('POST')) {
             $data = $request->request;
-            $book->setTitle($data->get('title'));
+            $book->setTitel($data->get('titel'));
             $book->setIsbn($data->get('isbn'));
             $book->setAuthor($data->get('author'));
-            $book->setImageUrl($data->get('imageUrl'));
 
             $doctrine->getManager()->flush();
             return $this->redirectToRoute('library_show', ['id' => $id]);
