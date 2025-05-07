@@ -67,10 +67,12 @@ class LibraryController extends AbstractController
     
                 try {
                     $imageFile->move($uploadsDir, $newFilename);
+                    $book->setImageUrl($newFilename);
                 } catch (FileException $e) {
+                    $book->setImageUrl('default.jpg');
                 }
-
-                $book->setImageUrl($newFilename);
+            } else {
+                $book->setImageUrl('default.jpg');
             }
     
             $em = $doctrine->getManager();
@@ -85,7 +87,7 @@ class LibraryController extends AbstractController
             'book'        => null,
             'form_action' => $this->generateUrl('library_create'),
         ]);
-    }
+    }    
 
     #[Route('/library/edit/{id}', name: 'library_edit', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
     public function edit(ManagerRegistry $doctrine, Request $request, LibraryRepository $repo, int $id): Response

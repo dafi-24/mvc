@@ -23,7 +23,7 @@
                     <td>{{ book.isbn }}</td>
                     <td>
                         {% if book.imageUrl %}
-                            <img src="/uploads/{{ book.imageUrl }}" alt="{{ book.titel }}" style="max-width: 100px; max-height: 100px;">
+                            <img src="{{ asset('uploads/' ~ book.imageUrl) }}" alt="{{ book.titel }}" style="max-width: 100px; max-height: 100px;">
                         {% else %}
                             <span>No image</span>
                         {% endif %}

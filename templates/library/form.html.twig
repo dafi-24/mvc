@@ -34,28 +34,6 @@
       required
     >
 
-    <label for="imageFile">Omslagsbild</label>
-    <p>Endast jpg-filer</p>
-
-    {% if book and book.imageUrl %}
-      <div class="current-image">
-        <p>Nuvarande omslag:</p>
-        <img 
-          src="{{ asset('uploads/' ~ book.imageUrl) }}" 
-          alt="Omslag för {{ book.titel }}" 
-          style="max-width:150px; display:block; margin-bottom:8px;"
-        >
-      </div>
-    {% endif %}
-
-    <input 
-      type="file" 
-      id="imageFile" 
-      name="imageFile" 
-      accept="image/*"
-      {{ book is not defined ? 'required' : '' }}
-    >
-
     <button type="submit">{{ action }}</button>
   </form>
 {% endblock %}
