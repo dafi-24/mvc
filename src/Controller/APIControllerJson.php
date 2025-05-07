@@ -206,4 +206,31 @@ class APIControllerJson extends AbstractController
             ['json_encode_options' => JSON_PRETTY_PRINT]
         );
     }
+
+    #[Route('/api/library/book/{isbn}', name: 'api_library_book', methods: ['GET'], requirements: ['isbn' => '\\d+'])]
+    public function getBookByIsbn(LibraryRepository $repo, string $isbn): JsonResponse
+    {
+        $book = $repo->findOneBy(['isbn' => $isbn]);
+        if (!$book) {
+            return $this->json(
+                ['error' => 'Book not found'],
+                JsonResponse::HTTP_NOT_FOUND
+            );
+        }
+
+        $data = [
+            'id' => $book->getId(),
+            'titel' => $book->getTitel(),
+            'author' => $book->getAuthor(),
+            'isbn' => $book->getIsbn(),
+            'imageUrl' => $book->getImageUrl(),
+        ];
+
+        return $this->json(
+            $data,
+            JsonResponse::HTTP_OK,
+            [],
+            ['json_encode_options' => JSON_PRETTY_PRINT]
+        );
+    }
 }

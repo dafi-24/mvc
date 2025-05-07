@@ -63,5 +63,24 @@
             </form>
             <p>Returnerar alla böcker i JSON-format.</p>
         </div>
+        
+        {% set baseBookRoute = path('api_library_book', {'isbn': 0})|slice(0, -1) %}
+        <div class="api-item">
+        <form method="get" action="#" onsubmit="
+            this.action = '{{ baseBookRoute }}' + document.getElementById('isbn').value;
+        ">
+            <label for="isbn">ISBN (endast siffror):</label>
+            <input
+            type="text"
+            id="isbn"
+            pattern="\d+"
+            required
+            placeholder="t.ex. 9781234567897"
+            autofocus
+            >
+            <button type="submit">Hämta bok</button>
+        </form>
+        <p>Fyll i ett giltigt ISBN (endast siffror) och tryck Hämta bok.</p>
+        </div>
     </div>
 {% endblock %}
