@@ -56,5 +56,12 @@
             </form>
             <p>Returnerar den aktuella ställningen för spelet i JSON-format.</p>
         </div>
+
+        <div class="api-item">
+            <form action="{{ path('api_library_books') }}" method="get">
+                <button type="submit">Visa alla böcker i biblioteket</button>
+            </form>
+            <p>Returnerar alla böcker i JSON-format.</p>
+        </div>
     </div>
 {% endblock %}
