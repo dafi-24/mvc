@@ -189,7 +189,7 @@ class APIControllerJson extends AbstractController
     public function listBooks(LibraryRepository $repo): JsonResponse
     {
         $books = $repo->findAll();
-        $data = array_map(function(Library $book) {
+        $data = array_map(function (Library $book) {
             return [
                 'id' => $book->getId(),
                 'title' => $book->getTitel(),

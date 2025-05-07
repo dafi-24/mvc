@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Library;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\LibraryRepository;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,7 +34,7 @@ class LibraryController extends AbstractController
     }
 
     #[Route('/library/show/{id}', name: 'library_show', requirements: ['id' => '\d+'])]
-    public function show(LibraryRepository $repo, int $id, RequestStack $requestStack): Response
+    public function show(LibraryRepository $repo, int $id): Response
     {
         $book = $repo->find($id);
 
@@ -53,41 +52,43 @@ class LibraryController extends AbstractController
     {
         if ($request->isMethod('POST')) {
             $data = $request->request;
+
+            $book = new Library();
+            $book->setTitel((string) ($data->get('titel') ?? ''));
+            $book->setIsbn((string) ($data->get('isbn') ?? ''));
+            $book->setAuthor((string) ($data->get('author') ?? ''));
+
+            $book->setImageUrl('default.jpg');
+
             /** @var UploadedFile $imageFile */
             $imageFile = $request->files->get('imageFile');
-    
-            $book = new Library();
-            $book->setTitel($data->get('titel'));
-            $book->setIsbn($data->get('isbn'));
-            $book->setAuthor($data->get('author'));
-    
+            // @phpstan-ignore-next-line
             if ($imageFile && $imageFile->isValid()) {
-                $uploadsDir = $this->getParameter('kernel.project_dir') . '/public/uploads';
+                // @phpstan-ignore-next-line
+                $uploadsDir = (string) $this->getParameter('kernel.project_dir') . '/public/uploads';
                 $newFilename = uniqid() . '.' . $imageFile->guessExtension();
-    
+
                 try {
                     $imageFile->move($uploadsDir, $newFilename);
                     $book->setImageUrl($newFilename);
                 } catch (FileException $e) {
-                    $book->setImageUrl('default.jpg');
+                    // Handle exception if something happens during file upload
                 }
-            } else {
-                $book->setImageUrl('default.jpg');
             }
-    
-            $em = $doctrine->getManager();
-            $em->persist($book);
-            $em->flush();
-    
+
+            $entitymanager = $doctrine->getManager();
+            $entitymanager->persist($book);
+            $entitymanager->flush();
+
             return $this->redirectToRoute('library_list');
         }
-    
+
         return $this->render('library/form.html.twig', [
             'action'      => 'Lägg till bok',
             'book'        => null,
             'form_action' => $this->generateUrl('library_create'),
         ]);
-    }    
+    }
 
     #[Route('/library/edit/{id}', name: 'library_edit', methods: ['GET', 'POST'], requirements: ['id' => '\d+'])]
     public function edit(ManagerRegistry $doctrine, Request $request, LibraryRepository $repo, int $id): Response
@@ -99,9 +100,9 @@ class LibraryController extends AbstractController
 
         if ($request->isMethod('POST')) {
             $data = $request->request;
-            $book->setTitel($data->get('titel'));
-            $book->setIsbn($data->get('isbn'));
-            $book->setAuthor($data->get('author'));
+            $book->setTitel((string) ($data->get('titel') ?? ''));
+            $book->setIsbn((string) ($data->get('isbn') ?? ''));
+            $book->setAuthor((string) ($data->get('author') ?? ''));
 
             $doctrine->getManager()->flush();
             return $this->redirectToRoute('library_show', ['id' => $id]);
@@ -117,11 +118,11 @@ class LibraryController extends AbstractController
     #[Route('/library/delete/{id}', name: 'library_delete', methods: ['POST'], requirements: ['id' => '\d+'])]
     public function delete(ManagerRegistry $doctrine, LibraryRepository $repo, int $id): Response
     {
-        $em = $doctrine->getManager();
+        $entitymanager = $doctrine->getManager();
         $book = $repo->find($id);
         if ($book) {
-            $em->remove($book);
-            $em->flush();
+            $entitymanager->remove($book);
+            $entitymanager->flush();
         }
         return $this->redirectToRoute('library_list');
     }

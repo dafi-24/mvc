@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\ProductRepository;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -43,11 +42,11 @@ final class ProductController extends AbstractController
         $products = $productRepository
             ->findAll();
 
-            $response = $this->json($products);
-            $response->setEncodingOptions(
-                $response->getEncodingOptions() | JSON_PRETTY_PRINT
-            );
-            return $response;
+        $response = $this->json($products);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
     }
     #[Route('/product/show/{id}', name: 'product_by_id')]
     public function showProductById(
@@ -109,27 +108,5 @@ final class ProductController extends AbstractController
         ];
 
         return $this->render('product/view.html.twig', $data);
-    }
-    #[Route('/product/view/{value}', name: 'product_view_minimum_value')]
-    public function viewProductWithMinimumValue(
-        ProductRepository $productRepository,
-        int $value
-    ): Response {
-        $products = $productRepository->findByMinimumValue($value);
-
-        $data = [
-            'products' => $products
-        ];
-
-        return $this->render('product/view.html.twig', $data);
-    }
-    #[Route('/product/show/min/{value}', name: 'product_by_min_value')]
-    public function showProductByMinimumValue(
-        ProductRepository $productRepository,
-        int $value
-    ): Response {
-        $products = $productRepository->findByMinimumValue2($value);
-
-        return $this->json($products);
     }
 }

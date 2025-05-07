@@ -18,39 +18,39 @@ class ProductRepository extends ServiceEntityRepository
 
     /**
      * Find all producs having a value above the specified one.
-     * 
+     *
      * @return Product[] Returns an array of Product objects
      */
-    public function findByMinimumValue($value): array
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.value >= :value')
-            ->setParameter('value', $value)
-            ->orderBy('p.value', 'ASC')
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+    //public function findByMinimumValue($value): array
+    //{
+    //    return $this->createQueryBuilder('p')
+    //        ->andWhere('p.value >= :value')
+    //        ->setParameter('value', $value)
+    //        ->orderBy('p.value', 'ASC')
+    //        ->getQuery()
+    //        ->getResult()
+    //    ;
+    //}
 
     /**
      * Find all producs having a value above the specified one with SQL.
-     * 
-     * @return [][] Returns an array of arrays (i.e. a raw data set)
+     *
+     * [][] Returns an array of arrays (i.e. a raw data set)
      */
-    public function findByMinimumValue2($value): array
-    {
-        $conn = $this->getEntityManager()->getConnection();
+    //public function findByMinimumValue2($value): array
+    //{
+    //    $conn = $this->getEntityManager()->getConnection();
 
-        $sql = '
-            SELECT * FROM product AS p
-            WHERE p.value >= :value
-            ORDER BY p.value ASC
-        ';
+    //    $sql = '
+    //        SELECT * FROM product AS p
+    //        WHERE p.value >= :value
+    //        ORDER BY p.value ASC
+    //    ';
 
-        $resultSet = $conn->executeQuery($sql, ['value' => $value]);
+    //    $resultSet = $conn->executeQuery($sql, ['value' => $value]);
 
-        return $resultSet->fetchAllAssociative();
-    }
+    //    return $resultSet->fetchAllAssociative();
+    //}
 
     //    /**
     //     * @return Product[] Returns an array of Product objects

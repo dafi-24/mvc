@@ -17,7 +17,10 @@ final class Version20250506095952 extends AbstractMigration
         return '';
     }
 
-    public function up(Schema $schema): void
+    /**
+    * @SuppressWarnings("UnusedFormalParameter")
+    */
+    public function upp(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql(<<<'SQL'
@@ -40,6 +43,9 @@ final class Version20250506095952 extends AbstractMigration
         SQL);
     }
 
+    /**
+    * @SuppressWarnings("UnusedFormalParameter")
+    */
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
