@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1746690481">
-  <project timestamp="1746690481">
+<coverage generated="1746700725">
+  <project timestamp="1746700725">
     <file name="/home/feedux/dbwebb-kurser/mvc/me/report/src/Card/BlackjackGame.php">
       <class name="App\Card\BlackjackGame" namespace="global">
         <metrics complexity="14" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="36" coveredelements="36"/>
@@ -92,15 +92,15 @@
       <line num="35" type="stmt" count="14"/>
       <line num="36" type="stmt" count="13"/>
       <line num="37" type="stmt" count="13"/>
-      <line num="38" type="stmt" count="10"/>
-      <line num="39" type="stmt" count="11"/>
-      <line num="40" type="stmt" count="7"/>
-      <line num="41" type="stmt" count="6"/>
-      <line num="42" type="stmt" count="6"/>
-      <line num="43" type="stmt" count="6"/>
+      <line num="38" type="stmt" count="9"/>
+      <line num="39" type="stmt" count="12"/>
+      <line num="40" type="stmt" count="8"/>
+      <line num="41" type="stmt" count="5"/>
+      <line num="42" type="stmt" count="5"/>
+      <line num="43" type="stmt" count="5"/>
       <line num="47" type="stmt" count="14"/>
-      <line num="48" type="stmt" count="2"/>
-      <line num="49" type="stmt" count="2"/>
+      <line num="48" type="stmt" count="1"/>
+      <line num="49" type="stmt" count="1"/>
       <line num="52" type="stmt" count="14"/>
       <line num="55" type="method" name="isBust" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="57" type="stmt" count="2"/>
@@ -112,7 +112,7 @@
       </class>
       <line num="10" type="method" name="playTurn" visibility="public" complexity="2" crap="2" count="3"/>
       <line num="12" type="stmt" count="3"/>
-      <line num="13" type="stmt" count="2"/>
+      <line num="13" type="stmt" count="1"/>
       <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
     </file>
     <file name="/home/feedux/dbwebb-kurser/mvc/me/report/src/Card/DeckOfCards.php">
