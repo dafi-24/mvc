@@ -10,7 +10,7 @@
     <p>Dessa kort har dragits:</p>
     <ul>
         {% for card in drawnCards %}
-            <li>{{ card.getColoredUnicode()|raw }}</li>
+            <li class="card">{{ card.getColoredUnicode()|raw }}</li>
         {% endfor %}
     </ul>
 {% else %}
