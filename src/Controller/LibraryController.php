@@ -100,9 +100,9 @@ class LibraryController extends AbstractController
                 }
             }
 
-            $em = $doctrine->getManager();
-            $em->persist($book);
-            $em->flush();
+            $entitymanager = $doctrine->getManager();
+            $entitymanager->persist($book);
+            $entitymanager->flush();
 
             return $this->redirectToRoute('library_list');
         }
@@ -158,11 +158,11 @@ class LibraryController extends AbstractController
     #[Route('/library/delete/{id}', name: 'library_delete', methods: ['POST'], requirements: ['id' => '\\d+'])]
     public function delete(ManagerRegistry $doctrine, LibraryRepository $repo, int $id): Response
     {
-        $em = $doctrine->getManager();
+        $entitymanager = $doctrine->getManager();
         $book = $repo->find($id);
         if ($book) {
-            $em->remove($book);
-            $em->flush();
+            $entitymanager->remove($book);
+            $entitymanager->flush();
         }
         return $this->redirectToRoute('library_list');
     }

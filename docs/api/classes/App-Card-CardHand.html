@@ -130,12 +130,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardHand.php"><a href="files/src-card-cardhand.html"><abbr title="src/Card/CardHand.php">CardHand.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Klass CardHand</p>
 
+
+    <section class="phpdocumentor-description"><p>Hanterar en samling kort och beräknar dess värde enligt blackjack-regler.</p>
+</section>
 
 
 
@@ -196,12 +199,14 @@
     <span>
                                 &nbsp;: int    </span>
 </dt>
+<dd>Beräkna handens totala värde enligt blackjack-regler.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-CardHand.html#method_isBust">isBust()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
+<dd>Kontrollera om handen är &quot;bust&quot; (över 21 poäng).</dd>
 
     </dl>
 
@@ -233,7 +238,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardHand.php"><a href="files/src-card-cardhand.html"><abbr title="src/Card/CardHand.php">CardHand.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
@@ -246,7 +251,7 @@
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
-        <section class="phpdocumentor-description"><p>Array som innehåller kortobjekt</p>
+        <section class="phpdocumentor-description"><p>Array som innehåller kortobjekt i handen.</p>
 </section>
 
     
@@ -276,7 +281,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardHand.php"><a href="files/src-card-cardhand.html"><abbr title="src/Card/CardHand.php">CardHand.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -297,7 +302,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Kortobjekt som ska läggas till.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -321,7 +328,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardHand.php"><a href="files/src-card-cardhand.html"><abbr title="src/Card/CardHand.php">CardHand.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -344,7 +351,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Card-Card.html"><abbr title="\App\Card\Card">Card</abbr></a>&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Array med kortobjekt</p>
+                <section class="phpdocumentor-description"><p>Array med samtliga kortobjekt.</p>
 </section>
 
             </section>
@@ -364,11 +371,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardHand.php"><a href="files/src-card-cardhand.html"><abbr title="src/Card/CardHand.php">CardHand.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Beräkna handens totala värde enligt blackjack-regler.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
@@ -376,7 +384,11 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Numeriska kort ger sitt numeriska värde,
+knekt, dam och kung ger 10 poäng vardera,
+ess ger initialt 11 poäng men justeras automatiskt till 1 om summan överstiger 21.</p>
+</section>
+
     
     
 
@@ -385,6 +397,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Handens totala poäng.</p>
+</section>
+
             </section>
 
 </article>
@@ -402,11 +418,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardHand.php"><a href="files/src-card-cardhand.html"><abbr title="src/Card/CardHand.php">CardHand.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Kontrollera om handen är &quot;bust&quot; (över 21 poäng).</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isBust</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
@@ -423,6 +440,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True om handens värde är större än 21, annars false.</p>
+</section>
+
             </section>
 
 </article>

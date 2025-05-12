@@ -103,37 +103,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardGraphic",
             "name": "CardGraphic",
-            "summary": "Class\u0020Card",
+            "summary": "Klass\u0020CardGraphic",
             "url": "classes/App-Card-CardGraphic.html"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Card\u0020constructor.",
+            "summary": "Konstruktor\u0020f\u00F6r\u0020CardGraphic.",
             "url": "classes/App-Card-CardGraphic.html#method___construct"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AgetUnicode\u0028\u0029",
             "name": "getUnicode",
-            "summary": "",
+            "summary": "H\u00E4mtar\u0020den\u0020Unicode\u002Drepresentation\u0020av\u0020kortet.",
             "url": "classes/App-Card-CardGraphic.html#method_getUnicode"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AgetColor\u0028\u0029",
             "name": "getColor",
-            "summary": "H\u00E4mtar\u0020kortets\u0020f\u00E4rg\u0020baserat\u0020p\u00E5\u0020suiten.",
+            "summary": "Best\u00E4mmer\u0020kortets\u0020f\u00E4rg\u0020baserat\u0020p\u00E5\u0020dess\u0020f\u00E4rg.",
             "url": "classes/App-Card-CardGraphic.html#method_getColor"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003AgetColoredUnicode\u0028\u0029",
             "name": "getColoredUnicode",
-            "summary": "",
+            "summary": "H\u00E4mtar\u0020HTML\u002Dformaterad\u0020Unicode\u002Drepresentation\u0020av\u0020kortet\u0020med\u0020f\u00E4rg.",
             "url": "classes/App-Card-CardGraphic.html#method_getColoredUnicode"
         },                {
             "fqsen": "\\App\\Card\\CardGraphic\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "",
+            "summary": "Magisk\u0020metod\u0020f\u00F6r\u0020att\u0020konvertera\u0020kortet\u0020till\u0020str\u00E4ng.",
             "url": "classes/App-Card-CardGraphic.html#method___toString"
         },                {
             "fqsen": "\\App\\Card\\CardHand",
             "name": "CardHand",
-            "summary": "",
+            "summary": "Klass\u0020CardHand",
             "url": "classes/App-Card-CardHand.html"
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003Aadd\u0028\u0029",
@@ -148,12 +148,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
-            "summary": "",
+            "summary": "Ber\u00E4kna\u0020handens\u0020totala\u0020v\u00E4rde\u0020enligt\u0020blackjack\u002Dregler.",
             "url": "classes/App-Card-CardHand.html#method_getValue"
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003AisBust\u0028\u0029",
             "name": "isBust",
-            "summary": "",
+            "summary": "Kontrollera\u0020om\u0020handen\u0020\u00E4r\u0020\u0022bust\u0022\u0020\u0028\u00F6ver\u002021\u0020po\u00E4ng\u0029.",
             "url": "classes/App-Card-CardHand.html#method_isBust"
         },                {
             "fqsen": "\\App\\Card\\CardHand\u003A\u003A\u0024hand",
@@ -163,47 +163,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Dealer",
             "name": "Dealer",
-            "summary": "",
+            "summary": "Klass\u0020Dealer",
             "url": "classes/App-Card-Dealer.html"
         },                {
             "fqsen": "\\App\\Card\\Dealer\u003A\u003AplayTurn\u0028\u0029",
             "name": "playTurn",
-            "summary": "",
+            "summary": "Spelar\u0020dealerens\u0020tur.",
             "url": "classes/App-Card-Dealer.html#method_playTurn"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards",
             "name": "DeckOfCards",
-            "summary": "",
+            "summary": "Klass\u0020DeckOfCards",
             "url": "classes/App-Card-DeckOfCards.html"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Konstruktor\u0020f\u00F6r\u0020DeckOfCards.",
             "url": "classes/App-Card-DeckOfCards.html#method___construct"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AresetDeck\u0028\u0029",
             "name": "resetDeck",
-            "summary": "",
+            "summary": "\u00C5terst\u00E4ll\u0020leken\u0020till\u0020en\u0020hel,\u0020ordnad\u0020kortlek.",
             "url": "classes/App-Card-DeckOfCards.html#method_resetDeck"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003Ashuffle\u0028\u0029",
             "name": "shuffle",
-            "summary": "",
+            "summary": "Blanda\u0020kortleken\u0020slumpm\u00E4ssigt.",
             "url": "classes/App-Card-DeckOfCards.html#method_shuffle"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003Adraw\u0028\u0029",
             "name": "draw",
-            "summary": "Dra\u0020ett\u0020eller\u0020flera\u0020kort\u0020fr\u00E5n\u0020leken.",
+            "summary": "Dra\u0020ett\u0020eller\u0020flera\u0020kort\u0020fr\u00E5n\u0020toppen\u0020av\u0020leken.",
             "url": "classes/App-Card-DeckOfCards.html#method_draw"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AgetCards\u0028\u0029",
             "name": "getCards",
-            "summary": "H\u00E4mta\u0020alla\u0020kort\u0020i\u0020leken.",
+            "summary": "H\u00E4mta\u0020alla\u0020\u00E5terst\u00E5ende\u0020kort\u0020i\u0020leken\u0020utan\u0020att\u0020ta\u0020bort\u0020dem.",
             "url": "classes/App-Card-DeckOfCards.html#method_getCards"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003AcardsLeft\u0028\u0029",
             "name": "cardsLeft",
-            "summary": "",
+            "summary": "R\u00E4kna\u0020hur\u0020m\u00E5nga\u0020kort\u0020som\u0020finns\u0020kvar\u0020i\u0020leken.",
             "url": "classes/App-Card-DeckOfCards.html#method_cardsLeft"
         },                {
             "fqsen": "\\App\\Card\\DeckOfCards\u003A\u003A\u0024cards",
@@ -213,37 +213,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Card\\Player",
             "name": "Player",
-            "summary": "",
+            "summary": "Klass\u0020Player",
             "url": "classes/App-Card-Player.html"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Konstruktor\u0020f\u00F6r\u0020Player.",
             "url": "classes/App-Card-Player.html#method___construct"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003Ahit\u0028\u0029",
             "name": "hit",
-            "summary": "",
+            "summary": "Dra\u0020ett\u0020kort\u0020\u0028hit\u0029\u0020och\u0020l\u00E4gg\u0020det\u0020i\u0020spelarens\u0020hand.",
             "url": "classes/App-Card-Player.html#method_hit"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003Astand\u0028\u0029",
             "name": "stand",
-            "summary": "",
+            "summary": "Spelaren\u0020st\u00E5r\u0020\u0028stand\u0029\u0020\u2013\u0020inga\u0020fler\u0020kort\u0020dras.",
             "url": "classes/App-Card-Player.html#method_stand"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003AgetHand\u0028\u0029",
             "name": "getHand",
-            "summary": "",
+            "summary": "H\u00E4mta\u0020spelarens\u0020hand.",
             "url": "classes/App-Card-Player.html#method_getHand"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003AisBust\u0028\u0029",
             "name": "isBust",
-            "summary": "",
+            "summary": "Kontrollera\u0020om\u0020spelaren\u0020har\u0020bust\u0020\u0028\u00F6ver\u002021\u0020po\u00E4ng\u0029.",
             "url": "classes/App-Card-Player.html#method_isBust"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003AgetValue\u0028\u0029",
             "name": "getValue",
-            "summary": "",
+            "summary": "H\u00E4mta\u0020spelarens\u0020nuvarande\u0020po\u00E4ngv\u00E4rde.",
             "url": "classes/App-Card-Player.html#method_getValue"
         },                {
             "fqsen": "\\App\\Card\\Player\u003A\u003A\u0024hand",
@@ -253,7 +253,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson",
             "name": "APIControllerJson",
-            "summary": "",
+            "summary": "APIControllerJson\u0020hanterar\u0020JSON\u002Dendpoints\u0020f\u00F6r\u0020olika\u0020API\u002Dfunktioner\nsom\u0020lyckonummer,\u0020citat,\u0020kortlek\u0020och\u0020bibliotek.",
             "url": "classes/App-Controller-APIControllerJson.html"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AapiOverview\u0028\u0029",
@@ -268,232 +268,242 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AjsonNumber\u0028\u0029",
             "name": "jsonNumber",
-            "summary": "",
+            "summary": "Returnerar\u0020ett\u0020slumpm\u00E4ssigt\u0020lyckonummer\u0020och\u0020ett\u0020meddelande.",
             "url": "classes/App-Controller-APIControllerJson.html#method_jsonNumber"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AjsonQuote\u0028\u0029",
             "name": "jsonQuote",
-            "summary": "",
+            "summary": "Returnerar\u0020ett\u0020slumpm\u00E4ssigt\u0020citat\u0020samt\u0020dagens\u0020datum\u0020och\u0020tid.",
             "url": "classes/App-Controller-APIControllerJson.html#method_jsonQuote"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AgetDeck\u0028\u0029",
             "name": "getDeck",
-            "summary": "",
+            "summary": "Returnerar\u0020nuvarande\u0020kortlek\u0020sorterad\u0020efter\u0020f\u00E4rg\u0020och\u0020v\u00E4rde.",
             "url": "classes/App-Controller-APIControllerJson.html#method_getDeck"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AshuffleDeck\u0028\u0029",
             "name": "shuffleDeck",
-            "summary": "",
+            "summary": "Blandar\u0020kortleken\u0020och\u0020returnerar\u0020den\u0020blandade\u0020kortleken.",
             "url": "classes/App-Controller-APIControllerJson.html#method_shuffleDeck"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AdrawCards\u0028\u0029",
             "name": "drawCards",
-            "summary": "",
+            "summary": "Drar\u0020ett\u0020eller\u0020flera\u0020kort\u0020fr\u00E5n\u0020kortleken.",
             "url": "classes/App-Controller-APIControllerJson.html#method_drawCards"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AformDrawRedirect\u0028\u0029",
             "name": "formDrawRedirect",
-            "summary": "",
+            "summary": "Tar\u0020emot\u0020formul\u00E4rdata\u0020f\u00F6r\u0020kortdragning\u0020och\u0020omdirigerar\u0020till\u0020draw\u002Drouten.",
             "url": "classes/App-Controller-APIControllerJson.html#method_formDrawRedirect"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AgameStatus\u0028\u0029",
             "name": "gameStatus",
-            "summary": "",
+            "summary": "Returnerar\u0020spelets\u0020status\u0020med\u0020spelare,\u0020dealer\u0020och\u0020resultat.",
             "url": "classes/App-Controller-APIControllerJson.html#method_gameStatus"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AlistBooks\u0028\u0029",
             "name": "listBooks",
-            "summary": "",
+            "summary": "Returnerar\u0020en\u0020lista\u0020\u00F6ver\u0020alla\u0020b\u00F6cker\u0020i\u0020biblioteket.",
             "url": "classes/App-Controller-APIControllerJson.html#method_listBooks"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AgetBookByIsbn\u0028\u0029",
             "name": "getBookByIsbn",
-            "summary": "",
+            "summary": "H\u00E4mtar\u0020en\u0020bok\u0020baserat\u0020p\u00E5\u0020dess\u0020ISBN.",
             "url": "classes/App-Controller-APIControllerJson.html#method_getBookByIsbn"
         },                {
             "fqsen": "\\App\\Controller\\CardController",
             "name": "CardController",
-            "summary": "",
+            "summary": "CardController\u0020hanterar\u0020visning\u0020och\u0020hantering\u0020av\u0020kortlek\u0020via\u0020webbsidor.",
             "url": "classes/App-Controller-CardController.html"
         },                {
             "fqsen": "\\App\\Controller\\CardController\u003A\u003Ahome\u0028\u0029",
             "name": "home",
-            "summary": "",
+            "summary": "Visar\u0020startsidan\u0020f\u00F6r\u0020kortapplikationen\u0020med\u0020nuvarande\u0020sessiondata.",
             "url": "classes/App-Controller-CardController.html#method_home"
         },                {
             "fqsen": "\\App\\Controller\\CardController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Visar\u0020alla\u0020sessionens\u0020data\u0020p\u00E5\u0020en\u0020egen\u0020sida.",
             "url": "classes/App-Controller-CardController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\CardController\u003A\u003AsessionDelete\u0028\u0029",
             "name": "sessionDelete",
-            "summary": "",
+            "summary": "Rensar\u0020all\u0020data\u0020i\u0020sessionen\u0020och\u0020omdirigerar\u0020till\u0020startsidan.",
             "url": "classes/App-Controller-CardController.html#method_sessionDelete"
         },                {
             "fqsen": "\\App\\Controller\\CardController\u003A\u003Adeck\u0028\u0029",
             "name": "deck",
-            "summary": "",
+            "summary": "Visar\u0020hela\u0020kortleken\u0020sorterad\u0020efter\u0020f\u00E4rg.",
             "url": "classes/App-Controller-CardController.html#method_deck"
         },                {
             "fqsen": "\\App\\Controller\\CardController\u003A\u003AdeckShuffle\u0028\u0029",
             "name": "deckShuffle",
-            "summary": "",
+            "summary": "Blandar\u0020kortleken,\u0020sparar\u0020i\u0020sessionen\u0020och\u0020visar\u0020den.",
             "url": "classes/App-Controller-CardController.html#method_deckShuffle"
         },                {
             "fqsen": "\\App\\Controller\\CardController\u003A\u003AdeckDraw\u0028\u0029",
             "name": "deckDraw",
-            "summary": "",
+            "summary": "Drar\u0020ett\u0020kort\u0020fr\u00E5n\u0020kortleken,\u0020uppdaterar\u0020sessionen\u0020och\u0020visar\u0020resultatet.",
             "url": "classes/App-Controller-CardController.html#method_deckDraw"
         },                {
             "fqsen": "\\App\\Controller\\CardController\u003A\u003AdeckDrawNumber\u0028\u0029",
             "name": "deckDrawNumber",
-            "summary": "",
+            "summary": "Drar\u0020ett\u0020angivet\u0020antal\u0020kort\u0020fr\u00E5n\u0020kortleken,\u0020uppdaterar\u0020sessionen\u0020och\u0020visar\u0020resultatet.",
             "url": "classes/App-Controller-CardController.html#method_deckDrawNumber"
         },                {
             "fqsen": "\\App\\Controller\\GameController",
             "name": "GameController",
-            "summary": "",
+            "summary": "GameController\u0020hanterar\u0020Blackjack\u002Dspel\u0020via\u0020webbrutter.",
             "url": "classes/App-Controller-GameController.html"
         },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003Ahome\u0028\u0029",
             "name": "home",
-            "summary": "",
+            "summary": "Visar\u0020startsidan\u0020f\u00F6r\u0020spelet.",
             "url": "classes/App-Controller-GameController.html#method_home"
         },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003Astart\u0028\u0029",
             "name": "start",
-            "summary": "",
+            "summary": "Startar\u0020ett\u0020nytt\u0020Blackjack\u002Dspel,\u0020sparar\u0020det\u0020i\u0020sessionen\u0020och\u0020omdirigerar\u0020till\u0020spelvyn.",
             "url": "classes/App-Controller-GameController.html#method_start"
         },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003Aplay\u0028\u0029",
             "name": "play",
-            "summary": "",
+            "summary": "Visar\u0020aktuell\u0020spelvy\u0020med\u0020spelar\u002D\u0020och\u0020dealerhand\u0020samt\u0020deras\u0020po\u00E4ng.",
             "url": "classes/App-Controller-GameController.html#method_play"
         },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003Ahit\u0028\u0029",
             "name": "hit",
-            "summary": "",
+            "summary": "Hanterar\u0020spelarens\u0020\u0022hit\u0022\u002D\u00E5tg\u00E4rd\u0020\u0028dra\u0020kort\u0029.",
             "url": "classes/App-Controller-GameController.html#method_hit"
         },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003Astand\u0028\u0029",
             "name": "stand",
-            "summary": "",
+            "summary": "Hanterar\u0020spelarens\u0020\u0022stand\u0022\u002D\u00E5tg\u00E4rd\u0020och\u0020genomf\u00F6r\u0020dealerns\u0020tur.",
             "url": "classes/App-Controller-GameController.html#method_stand"
         },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003Adouble\u0028\u0029",
             "name": "double",
-            "summary": "",
+            "summary": "Hanterar\u0020spelarens\u0020\u0022double\u0022\u002D\u00E5tg\u00E4rd\u0020\u0028dubbla\u0020insatsen\u0020och\u0020dra\u0020ett\u0020kort\u0029,\nsedan\u0020dealerns\u0020tur\u0020om\u0020spelaren\u0020fortfarande\u0020\u00E4r\u0020vid\u0020liv.",
             "url": "classes/App-Controller-GameController.html#method_double"
         },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003Aresult\u0028\u0029",
             "name": "result",
-            "summary": "",
+            "summary": "Visar\u0020resultaten\u0020av\u0020spelet\u0020inklusive\u0020h\u00E4nder,\u0020po\u00E4ng\u0020och\u0020vinnare.",
             "url": "classes/App-Controller-GameController.html#method_result"
         },                {
             "fqsen": "\\App\\Controller\\GameController\u003A\u003Adoc\u0028\u0029",
             "name": "doc",
-            "summary": "",
+            "summary": "Visar\u0020dokumentationssidan\u0020f\u00F6r\u0020spelet.",
             "url": "classes/App-Controller-GameController.html#method_doc"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController",
             "name": "LibraryController",
-            "summary": "",
+            "summary": "LibraryController\u0020hanterar\u0020CRUD\u002Doperationer\u0020f\u00F6r\u0020bibliotekets\u0020b\u00F6cker.",
             "url": "classes/App-Controller-LibraryController.html"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Visar\u0020huvudvy\u0020f\u00F6r\u0020biblioteket.",
             "url": "classes/App-Controller-LibraryController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Alist\u0028\u0029",
             "name": "list",
-            "summary": "",
+            "summary": "Visar\u0020en\u0020lista\u0020\u00F6ver\u0020alla\u0020b\u00F6cker\u0020i\u0020biblioteket.",
             "url": "classes/App-Controller-LibraryController.html#method_list"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Ashow\u0028\u0029",
             "name": "show",
-            "summary": "",
+            "summary": "Visar\u0020detaljer\u0020f\u00F6r\u0020en\u0020specifik\u0020bok.",
             "url": "classes/App-Controller-LibraryController.html#method_show"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "",
+            "summary": "Skapar\u0020en\u0020ny\u0020bok\u0020via\u0020formul\u00E4r\u0020\u0028GET\u0020visar\u0020formul\u00E4ret,\u0020POST\u0020hanterar\u0020inskickad\u0020data\u0029.",
             "url": "classes/App-Controller-LibraryController.html#method_create"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
-            "summary": "",
+            "summary": "Uppdaterar\u0020en\u0020befintlig\u0020bok\u0020via\u0020formul\u00E4r\u0020\u0028GET\u0020visar\u0020formul\u00E4ret,\u0020POST\u0020hanterar\u0020uppdatering\u0029.",
             "url": "classes/App-Controller-LibraryController.html#method_edit"
         },                {
             "fqsen": "\\App\\Controller\\LibraryController\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Tar\u0020bort\u0020en\u0020bok\u0020fr\u00E5n\u0020biblioteket.",
             "url": "classes/App-Controller-LibraryController.html#method_delete"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig",
             "name": "LuckyControllerTwig",
-            "summary": "",
+            "summary": "LuckyControllerTwig\u0020hanterar\u0020grundl\u00E4ggande\u0020sidor\u0020och\u0020ett\u0020lyckonummer\u0020via\u0020Twig.",
             "url": "classes/App-Controller-LuckyControllerTwig.html"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Ahome\u0028\u0029",
             "name": "home",
-            "summary": "",
+            "summary": "Visar\u0020hemsidan.",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_home"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Aabout\u0028\u0029",
             "name": "about",
-            "summary": "",
+            "summary": "Visar\u0020om\u002Dsidan\u0020med\u0020information\u0020om\u0020applikationen.",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_about"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Areport\u0028\u0029",
             "name": "report",
-            "summary": "",
+            "summary": "Visar\u0020rapport\u002Dsidan.",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_report"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003Anumber\u0028\u0029",
             "name": "number",
-            "summary": "",
+            "summary": "Genererar\u0020och\u0020visar\u0020ett\u0020slumpm\u00E4ssigt\u0020lyckonummer\u0020mellan\u00200\u0020och\u0020100.",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_number"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController",
+            "name": "MetricsController",
+            "summary": "MetricsController\u0020hanterar\u0020vy\u0020f\u00F6r\u0020analys\u0020av\u0020olika\u0020metriker.",
+            "url": "classes/App-Controller-MetricsController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\MetricsController\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "Visar\u0020metrics\u002Danalys\u0020sidan.",
+            "url": "classes/App-Controller-MetricsController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\ProductController",
             "name": "ProductController",
-            "summary": "",
+            "summary": "ProductController\u0020hanterar\u0020CRUD\u002Doperationer\u0020f\u00F6r\u0020Product\u002Dentity.",
             "url": "classes/App-Controller-ProductController.html"
         },                {
             "fqsen": "\\App\\Controller\\ProductController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Visar\u0020startsidan\u0020f\u00F6r\u0020Product\u002Davsnittet.",
             "url": "classes/App-Controller-ProductController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\ProductController\u003A\u003AcreateProduct\u0028\u0029",
             "name": "createProduct",
-            "summary": "",
+            "summary": "Skapar\u0020en\u0020ny\u0020produkt\u0020med\u0020slumpm\u00E4ssigt\u0020namn\u0020och\u0020v\u00E4rde\u0020och\u0020sparar\u0020den\u0020i\u0020databasen.",
             "url": "classes/App-Controller-ProductController.html#method_createProduct"
         },                {
             "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowAllProduct\u0028\u0029",
             "name": "showAllProduct",
-            "summary": "",
+            "summary": "Returnerar\u0020alla\u0020produkter\u0020som\u0020JSON.",
             "url": "classes/App-Controller-ProductController.html#method_showAllProduct"
         },                {
             "fqsen": "\\App\\Controller\\ProductController\u003A\u003AshowProductById\u0028\u0029",
             "name": "showProductById",
-            "summary": "",
+            "summary": "Returnerar\u0020en\u0020specifik\u0020produkt\u0020som\u0020JSON\u0020baserat\u0020p\u00E5\u0020ID.",
             "url": "classes/App-Controller-ProductController.html#method_showProductById"
         },                {
             "fqsen": "\\App\\Controller\\ProductController\u003A\u003AdeleteProductById\u0028\u0029",
             "name": "deleteProductById",
-            "summary": "",
+            "summary": "Tar\u0020bort\u0020en\u0020produkt\u0020baserat\u0020p\u00E5\u0020ID\u0020och\u0020omdirigerar\u0020till\u0020visning\u0020av\u0020alla.",
             "url": "classes/App-Controller-ProductController.html#method_deleteProductById"
         },                {
             "fqsen": "\\App\\Controller\\ProductController\u003A\u003AupdateProduct\u0028\u0029",
             "name": "updateProduct",
-            "summary": "",
+            "summary": "Uppdaterar\u0020en\u0020produkts\u0020v\u00E4rde\u0020baserat\u0020p\u00E5\u0020ID\u0020och\u0020nytt\u0020v\u00E4rde,\u0020sedan\u0020omdirigering.",
             "url": "classes/App-Controller-ProductController.html#method_updateProduct"
         },                {
             "fqsen": "\\App\\Controller\\ProductController\u003A\u003AviewAllProduct\u0028\u0029",
             "name": "viewAllProduct",
-            "summary": "",
+            "summary": "Visar\u0020alla\u0020produkter\u0020i\u0020en\u0020Twig\u002Dmall.",
             "url": "classes/App-Controller-ProductController.html#method_viewAllProduct"
         },                {
             "fqsen": "\\App\\Entity\\Library",

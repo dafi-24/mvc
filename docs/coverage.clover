@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1747059817">
-  <project timestamp="1747059817">
+<coverage generated="1747060660">
+  <project timestamp="1747060660">
     <file name="/home/feedux/dbwebb-kurser/mvc/me/report/src/Card/BlackjackGame.php">
       <class name="App\Card\BlackjackGame" namespace="global">
         <metrics complexity="14" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="36" coveredelements="36"/>
@@ -93,8 +93,8 @@
       <line num="53" type="stmt" count="13"/>
       <line num="54" type="stmt" count="13"/>
       <line num="55" type="stmt" count="10"/>
-      <line num="56" type="stmt" count="11"/>
-      <line num="57" type="stmt" count="7"/>
+      <line num="56" type="stmt" count="12"/>
+      <line num="57" type="stmt" count="8"/>
       <line num="58" type="stmt" count="5"/>
       <line num="59" type="stmt" count="5"/>
       <line num="60" type="stmt" count="5"/>

@@ -133,14 +133,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Class Card</p>
+            <p class="phpdocumentor-summary">Klass CardGraphic</p>
 
 
-    <section class="phpdocumentor-description"><p>Representerar ett kort i ett kortspel med en färg, värde och suit.</p>
+    <section class="phpdocumentor-description"><p>Utökar basklassen Card för att ge grafiska och färgade representationer
+av spelkort med Unicode-symboler.</p>
 </section>
 
 
@@ -200,26 +201,28 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Card constructor.</dd>
+<dd>Konstruktor för CardGraphic.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-CardGraphic.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Magisk metod för att konvertera kortet till sträng.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-CardGraphic.html#method_getColor">getColor()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Hämtar kortets färg baserat på suiten.</dd>
+<dd>Bestämmer kortets färg baserat på dess färg.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-CardGraphic.html#method_getColoredUnicode">getColoredUnicode()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Hämtar HTML-formaterad Unicode-representation av kortet med färg.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-Card.html#method_getSuit">getSuit()</a>
@@ -240,6 +243,7 @@
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Hämtar den Unicode-representation av kortet.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/App-Card-Card.html#method_getValue">getValue()</a>
@@ -393,11 +397,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Card constructor.</p>
+        <p class="phpdocumentor-summary">Konstruktor för CardGraphic.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -406,7 +410,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Skapar ett kort med en specifik suit och värde.</p>
+        <section class="phpdocumentor-description"><p>Skapar en ny instans av CardGraphic med angivet färg och värde.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -416,7 +420,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Kortets suit (t.ex. spades, hearts, diamonds, clubs).</p>
+                    <section class="phpdocumentor-description"><p>Färgen på kortet (t.ex. 'hearts', 'spades', 'diamonds', 'clubs').</p>
 </section>
 
             </dd>
@@ -425,7 +429,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Kortets värde (t.ex. 2, 3, 4, ..., King, Ace).</p>
+                    <section class="phpdocumentor-description"><p>Värdet på kortet (t.ex. 'A', '2', 'K', 'Q', 'J').</p>
 </section>
 
             </dd>
@@ -451,11 +455,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Magisk metod för att konvertera kortet till sträng.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -463,7 +468,9 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>När objektet kastas till sträng returneras den färgade Unicode-representationen.</p>
+</section>
+
     
     
 
@@ -472,6 +479,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>HTML-strängen för kortets färgade Unicode-symbol.</p>
+</section>
+
             </section>
 
 </article>
@@ -489,11 +500,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Hämtar kortets färg baserat på suiten.</p>
+        <p class="phpdocumentor-summary">Bestämmer kortets färg baserat på dess färg.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -502,9 +513,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Röda kort är 'hearts' och 'diamonds', medan svarta kort är 'spades' och 'clubs'.</p>
-</section>
-
+    
     
     
 
@@ -514,7 +523,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Kortets färg ('red' eller 'black').</p>
+                <section class="phpdocumentor-description"><p>Returnerar 'red' för hjärter och rutor; 'black' för spader och klöver.</p>
 </section>
 
             </section>
@@ -534,11 +543,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Hämtar HTML-formaterad Unicode-representation av kortet med färg.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getColoredUnicode</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -546,7 +556,9 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Om kortet är rött, omsluts Unicode-strängen i en <span> med inline CSS-färg.</p>
+</section>
+
     
     
 
@@ -555,6 +567,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>En sträng med Unicode-symbolen, eventuellt innesluten i ett färgat <span>.</p>
+</section>
+
             </section>
 
 </article>
@@ -670,11 +686,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Card/CardGraphic.php"><a href="files/src-card-cardgraphic.html"><abbr title="src/Card/CardGraphic.php">CardGraphic.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Hämtar den Unicode-representation av kortet.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getUnicode</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -682,7 +699,9 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Sammansätter kortets värde med dess färgsymbol.</p>
+</section>
+
     
     
 
@@ -691,6 +710,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>En sträng som innehåller kortvärdet följt av färgsymbolen.</p>
+</section>
+
             </section>
 
 </article>
