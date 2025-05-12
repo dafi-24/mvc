@@ -15,8 +15,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * APIControllerJson hanterar JSON-endpoints för olika API-funktioner
+ * som lyckonummer, citat, kortlek och bibliotek.
+ */
 class APIControllerJson extends AbstractController
 {
+    /**
+     * @var array $routes Innehåller alla tillgängliga rutter för API:et.
+     */
     #[Route("/api", name: "api_overview")]
     public function apiOverview(): Response
     {
@@ -28,6 +35,11 @@ class APIControllerJson extends AbstractController
         date_default_timezone_set('Europe/Stockholm');
     }
 
+    /**
+     * Returnerar ett slumpmässigt lyckonummer och ett meddelande.
+     *
+     * @return Response
+     */
     #[Route('/api/lucky/number', name: 'api_lucky')]
     public function jsonNumber(): Response
     {
@@ -45,6 +57,11 @@ class APIControllerJson extends AbstractController
         return $response;
     }
 
+    /**
+     * Returnerar ett slumpmässigt citat samt dagens datum och tid.
+     *
+     * @return Response
+     */
     #[Route('/api/quote', name: 'api_quote')]
     public function jsonQuote(): Response
     {
@@ -72,6 +89,13 @@ class APIControllerJson extends AbstractController
         return $response;
     }
 
+    /**
+     * Returnerar nuvarande kortlek sorterad efter färg och värde.
+     * Skapar en ny om det inte finns i sessionen.
+     *
+     * @param SessionInterface $session
+     * @return JsonResponse
+     */
     #[Route('/api/deck', name: 'api_deck', methods: ['GET'])]
     public function getDeck(SessionInterface $session): JsonResponse
     {
@@ -99,6 +123,12 @@ class APIControllerJson extends AbstractController
         return new JsonResponse($sortedDeck, JsonResponse::HTTP_OK);
     }
 
+    /**
+     * Blandar kortleken och returnerar den blandade kortleken.
+     *
+     * @param SessionInterface $session
+     * @return JsonResponse
+     */
     #[Route('/api/deck/shuffle', name: 'api_deck_shuffle', methods: ['POST'])]
     public function shuffleDeck(SessionInterface $session): JsonResponse
     {
@@ -114,8 +144,14 @@ class APIControllerJson extends AbstractController
         return new JsonResponse($shuffledDeck, JsonResponse::HTTP_OK);
     }
 
+    /**
+     * Drar ett eller flera kort från kortleken.
+     *
+     * @param SessionInterface $session
+     * @param int $number Antal kort att dra
+     * @return JsonResponse
+     */
     #[Route('/api/deck/draw', name: 'api_deck_draw', methods: ['POST'])]
-
     #[Route('/api/deck/draw/{number<\d+>}', name: 'api_deck_draw_number', methods: ['GET', 'POST'])]
     public function drawCards(SessionInterface $session, int $number): JsonResponse
     {
@@ -142,6 +178,12 @@ class APIControllerJson extends AbstractController
         ]);
     }
 
+    /**
+     * Tar emot formulärdata för kortdragning och omdirigerar till draw-routen.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
     #[Route('/api/deck/form-draw', name: 'api_deck_form_draw', methods: ['POST'])]
     public function formDrawRedirect(Request $request): RedirectResponse
     {
@@ -154,6 +196,12 @@ class APIControllerJson extends AbstractController
         return $this->redirectToRoute('api_deck_draw_number', ['number' => $number]);
     }
 
+    /**
+     * Returnerar spelets status med spelare, dealer och resultat.
+     *
+     * @param SessionInterface $session
+     * @return JsonResponse
+     */
     #[Route('/api/game', name: 'api_game', methods: ['GET'])]
     public function gameStatus(SessionInterface $session): JsonResponse
     {
@@ -185,6 +233,12 @@ class APIControllerJson extends AbstractController
         return new JsonResponse($data, JsonResponse::HTTP_OK);
     }
 
+    /**
+     * Returnerar en lista över alla böcker i biblioteket.
+     *
+     * @param LibraryRepository $repo
+     * @return JsonResponse
+     */
     #[Route('/api/library/books', name: 'api_library_books', methods: ['GET'])]
     public function listBooks(LibraryRepository $repo): JsonResponse
     {
@@ -207,6 +261,13 @@ class APIControllerJson extends AbstractController
         );
     }
 
+    /**
+     * Hämtar en bok baserat på dess ISBN.
+     *
+     * @param LibraryRepository $repo
+     * @param string $isbn
+     * @return JsonResponse
+     */
     #[Route('/api/library/book/{isbn}', name: 'api_library_book', methods: ['GET'], requirements: ['isbn' => '\\d+'])]
     public function getBookByIsbn(LibraryRepository $repo, string $isbn): JsonResponse
     {

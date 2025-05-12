@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metrics Analys{% endblock %}
+
+{% block main %}
+    <h1>Metrics Analys</h1>
+    <div class="about-container">
+        <div class="about-text">
+            <h2>Introduktion</h2>
+            <p>
+                Vi granskar en befintlig kodbas med hjälp av modellen 6C för att hitta sätt att göra koden lättare att underhålla, renare och mer effektiv. Här är en förklaring av varje C och hur de påverkar kodens kvalitet:
+            </p>
+            <ul>
+                <li>
+                    <strong>Codestyle:</strong> 
+                    Välj en stil (t.ex. indentering, namn på variabler) och använd den alltid konsekvent. Verktyg som “linter” kan hjälpa till att hitta stavfel, felaktig formatering och andra småmisstag.
+                </li>
+                <li>
+                    <strong>Coverage:</strong> 
+                    Skriv enhetstester för de olika delarna av koden. Sikta på så hög test­täckning som möjligt, så att flest möjliga funktioner kontrolleras automatiskt.
+                </li>
+                <li>
+                    <strong>Complexity:</strong> 
+                    Hög komplexitet gör koden svår att förstå och ändra. Dela upp stora, invecklade funktioner i mindre delar.
+                </li>
+                <li>
+                    <strong>Cohesion:</strong> 
+                    Metoder i en klass bör ha nära samband med varandra och med klassens data. Om något inte hör hemma, flytta det till en mer passande klass.
+                </li>
+                <li>
+                    <strong>Coupling:</strong> 
+                    Låg koppling mellan moduler gör att ändringar i en del inte sprider problem till andra delar. Använd arv eller lösa gränssnitt i stället för att dela massor av kod.
+                </li>
+                <li>
+                    <strong>CRAP:</strong> 
+                    CRAP (Change Risk Analysis and Predictions) mäter risken för förändringar i koden. Ett högt CRAP-värde indikerar att koden är svår att testa och underhålla.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <div class="about-text">
+            <h2>Phpmetrics</h2>
+            <p>
+                PHPmetrics är ett analysverktyg som mäter kvaliteten på PHP-kod genom att generera detaljerade rapporter.
+                Det analyserar faktorer som komplexitet, underhållbarhet och kodstruktur.
+                Verktyget visualiserar resultaten med grafer och diagram för att ge en tydlig översikt över kodens hälsa.
+                PHPmetrics används främst för att hjälpa utvecklare att förstå och förbättra sin kodbas över tid.
+            </p>
+            <p>Som vi ser på bilden så har vi lite att jobba på för att det ska bli godkänt.</p>
+            <ul>
+                <li>
+                    <strong>Hög cyklomatisk komplexitet:</strong> En del klasser och kontrollers har lite för hög komplexitet.
+                </li>
+                <li>
+                    <strong>Låg maintainability index:</strong> Det är lite för mycket rött och gult just nu för att det ska räknas som bra kodkvalitet.
+                </li>
+                <li>
+                    <strong>Violations:</strong> Just nu har koden 6 violations som behöver kollas över.
+                </li>
+            </ul>
+        </div>
+        <div class="about-image">
+            <a href="{{ asset('img/ring1.png') }}">
+                <img src="{{ asset('img/ring1.png') }}" alt=" ">
+            </a>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <div class="about-text">
+            <h2>Scrutinizer</h2>
+            <p>
+                Scrutinizer är ett verktyg för kontinuerlig kodgranskning som automatiskt analyserar kodkvalitet i projekt.
+                Det identifierar potentiella buggar, kodlukt och säkerhetsproblem genom statisk kodanalys.
+                Verktyget ger också förslag på förbättringar och hjälper utvecklare att följa kodstandarder.
+                Scrutinizer integreras smidigt med plattformar som GitHub, GitLab och Bitbucket för att ge feedback direkt i utvecklingsflödet.
+            </p>
+            <p>
+                Som vi ser på bilden så är det godkänt på första testet med undantaget till coverage.
+                Det vi inte ser på bilden är att det hittades ett par issues också.
+            </p>
+            <li>
+                <strong>Förbättra:</strong> Coverage är för låg för att det ska accepteras.
+            </li>
+            <li>
+                <strong>Fixa:</strong> De små issues som vi fick upp.
+            </li>
+            <p>
+                <a href="https://scrutinizer-ci.com/g/dafi-24/mvc/?branch=main">
+                    <img src="https://scrutinizer-ci.com/g/dafi-24/mvc/badges/quality-score.png?b=main" alt="Quality Score">
+                </a>
+                <a href="https://scrutinizer-ci.com/g/dafi-24/mvc/?branch=main">
+                    <img src="https://scrutinizer-ci.com/g/dafi-24/mvc/badges/coverage.png?b=main" alt="Coverage">
+                </a>
+                <a href="https://scrutinizer-ci.com/g/dafi-24/mvc/?branch=main">
+                    <img src="https://scrutinizer-ci.com/g/dafi-24/mvc/badges/build.png?b=main" alt="Build Status">
+                </a>
+            </p>
+        </div>
+        <div class="about-image">
+            <a href="{{ asset('img/scrutinizer_first.png') }}">
+                <img src="{{ asset('img/scrutinizer_first.png') }}" alt="Scrutinizer Visualization">
+            </a>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <div class="about-text">
+            <h2>Förbättringar</h2>
+            <p>
+                Som vi redan har tagit upp så har vi lite saker vi behöver göra för att få en bra kodkvalitet.
+            </p>
+            <li>
+                <strong>Fixa till coverage så att det får ett bättre betyg.</strong>
+            </li>
+            <li>
+                <strong>Fixa till issues och violations som existerar i min kod.</strong>
+            </li>
+            <li>
+                <strong>Öka maintainability index så att min blob är lite grönare.</strong>
+            </li>
+            <p>
+                Om vi tar och fixar till dessa tre saker i min kod så borde jag få ett bättre resultat och
+                då ska jag kunna uppnå en mer "clean code".
+                Anledningen till att jag väljer just dessa saker och fixa till är för att det är större saker som
+                visar resultat direkt.
+            </p>
+        </div>
+    </div>
+{% endblock %}
