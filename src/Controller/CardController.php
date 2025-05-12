@@ -57,7 +57,6 @@ class CardController extends AbstractController
     public function sessionDelete(SessionInterface $session): Response
     {
         $session->clear();
-        $this->addFlash('notice', 'Sessionen är raderad!');
         return $this->redirectToRoute('card_home');
     }
 
