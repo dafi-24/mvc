@@ -2,107 +2,174 @@
 
 namespace App\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use App\Controller\CardController;
+use App\Card\DeckOfCards;
+use Exception;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use App\Card\DeckOfCards;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Twig\Environment as TwigEnvironment;
 
-class CardControllerTest extends WebTestCase
+class CardControllerTest extends TestCase
 {
-    /**
-     * Test för startsidan (home).
-     */
-    public function testHome(): void
-    {
-        $session = $this->createMock(SessionInterface::class);
-        $session->method('all')->willReturn(['some_key' => 'some_value']);  // mockar sessiondata
+    private CardController $controller;
+    private TwigEnvironment $twig;
+    private Container $container;
 
-        $client = static::createClient();
-        $client->request('GET', '/card');
-        
-        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
-        $this->assertSelectorTextContains('h1', 'Utforska funktionerna');
+    protected function setUp(): void
+    {
+        // Mock Twig så att render() alltid returnerar 'rendered'
+        $this->twig = $this->createMock(TwigEnvironment::class);
+        $this->twig
+            ->method('render')
+            ->willReturn('rendered');
+
+        // Mock router (UrlGeneratorInterface) för redirectToRoute
+        $router = $this->createMock(UrlGeneratorInterface::class);
+        $router
+            ->method('generate')
+            ->with('card_home', [])
+            ->willReturn('/card');
+
+        // Skapa en enkel container och lägg in Twig + router
+        $this->container = new Container();
+        $this->container->set('twig', $this->twig);
+        $this->container->set('router', $router);
+
+        // Initiera kontrollern och injicera container
+        $this->controller = new CardController();
+        $this->controller->setContainer($this->container);
     }
 
-    /**
-     * Test för visning av sessionens data (index).
-     */
-    public function testIndex(): void
+    public function testHomeRendersWithSessionData(): void
     {
         $session = $this->createMock(SessionInterface::class);
-        $session->method('all')->willReturn(['some_key' => 'some_value']);  // mockar sessiondata
+        $session
+            ->expects($this->once())
+            ->method('all')
+            ->willReturn(['foo' => 'bar']);
 
-        $client = static::createClient();
-        $client->request('GET', '/session');
-        
-        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
-        $this->assertSelectorTextContains('h1', 'Session Debug');
+        $response = $this->controller->home($session);
+
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame('rendered', $response->getContent());
     }
 
-    /**
-     * Test för visning av kortleken (deck).
-     */
-    public function testDeck(): void
+    public function testIndexRendersWithSessionData(): void
     {
         $session = $this->createMock(SessionInterface::class);
-        $deck = new DeckOfCards();  // skapa en deck för testet
-        $session->method('get')->willReturn($deck);  // mocka sessionens kortlek
+        $sessionData = ['a' => 1, 'b' => 2];
+        $session
+            ->expects($this->once())
+            ->method('all')
+            ->willReturn($sessionData);
 
-        $client = static::createClient();
-        $client->request('GET', '/card/deck');
+        $response = $this->controller->index($session);
 
-        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
-        $this->assertSelectorTextContains('h1', 'Visa Kortleken');  // Kontrollera att Deck visas i body
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame('rendered', $response->getContent());
     }
 
-    /**
-     * Test för blandning av kortleken (deckShuffle).
-     */
-    public function testDeckShuffle(): void
+    public function testSessionDeleteClearsSessionAndRedirects(): void
     {
         $session = $this->createMock(SessionInterface::class);
-        $deck = new DeckOfCards();  // skapa en deck
-        $deck->shuffle();  // blanda kortleken
-        $session->method('get')->willReturn($deck);  // mocka sessionens kortlek
+        $session
+            ->expects($this->once())
+            ->method('clear');
 
-        $client = static::createClient();
-        $client->request('GET', '/card/deck/shuffle');
+        $response = $this->controller->sessionDelete($session);
 
-        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
-        $this->assertSelectorTextContains('h1', 'Blandad Kortlek');  // Kontrollera att Shuffle visas i body
+        $this->assertInstanceOf(RedirectResponse::class, $response);
+        $this->assertSame('/card', $response->getTargetUrl());
     }
 
-    /**
-     * Test för att dra ett kort från kortleken (deckDraw).
-     */
-    public function testDeckDraw(): void
+    public function testDeckCreatesNewDeckWhenNoneInSession(): void
     {
         $session = $this->createMock(SessionInterface::class);
-        $deck = new DeckOfCards();  // skapa en deck
-        $draw = $deck->draw(1);  // dra ett kort
-        $session->method('get')->willReturn($deck);  // mocka sessionens kortlek
+        // Första has(): false, därefter get() returnerar Deck
+        $session
+            ->method('has')
+            ->with('card_deck')
+            ->willReturn(false);
+        // Förvänta exakt en set() vid nydeck
+        $session
+            ->expects($this->once())
+            ->method('set')
+            ->with('card_deck', $this->isInstanceOf(DeckOfCards::class));
+        // get() returnerar en ny DeckOfCards
+        $session
+            ->method('get')
+            ->with('card_deck')
+            ->willReturn(new DeckOfCards());
 
-        $client = static::createClient();
-        $client->request('GET', '/card/deck/draw');
+        $response = $this->controller->deck($session);
 
-        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
-        $this->assertSelectorTextContains('h1', 'Dra kort');  // Kontrollera att drawnCards visas i body
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame('rendered', $response->getContent());
     }
 
-    /**
-     * Test för att dra ett angivet antal kort från kortleken (deckDrawNumber).
-     */
-    public function testDeckDrawNumber(): void
+    public function testDeckShuffleAlwaysShufflesAndRenders(): void
     {
         $session = $this->createMock(SessionInterface::class);
-        $deck = new DeckOfCards();  // skapa en deck
-        $draw = $deck->draw(3);  // dra 3 kort
-        $session->method('get')->willReturn($deck);  // mocka sessionens kortlek
+        $session
+            ->expects($this->once())
+            ->method('set')
+            ->with('card_deck', $this->callback(fn($deck) => $deck instanceof DeckOfCards));
 
-        $client = static::createClient();
-        $client->request('GET', '/card/deck/draw/3');
+        $response = $this->controller->deckShuffle($session);
 
-        $this->assertResponseStatusCodeSame(Response::HTTP_OK);
-        $this->assertSelectorTextContains('h1', 'Dra kort');  // Kontrollera att drawnCards visas i body
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame('rendered', $response->getContent());
+    }
+
+    public function testDeckDrawCreatesDeckIfMissingAndDrawsOneCard(): void
+    {
+        $session = $this->createMock(SessionInterface::class);
+        // has() false → set() anropas två gånger (nya + efter draw)
+        $session->method('has')->with('card_deck')->willReturn(false);
+        $session
+            ->expects($this->exactly(2))
+            ->method('set')
+            ->with('card_deck', $this->isInstanceOf(DeckOfCards::class));
+        $session
+            ->method('get')
+            ->with('card_deck')
+            ->willReturn(new DeckOfCards());
+
+        $response = $this->controller->deckDraw($session);
+
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame('rendered', $response->getContent());
+    }
+
+    public function testDeckDrawNumberThrowsWhenTooMany(): void
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Du kan inte dra mer än antalet kort i leken!');
+
+        $session = $this->createMock(SessionInterface::class);
+        $this->controller->deckDrawNumber(53, $session);
+    }
+
+    public function testDeckDrawNumberDrawsSpecifiedCount(): void
+    {
+        $session = $this->createMock(SessionInterface::class);
+        $session->method('has')->with('card_deck')->willReturn(false);
+        $session
+            ->expects($this->exactly(2))
+            ->method('set')
+            ->with('card_deck', $this->isInstanceOf(DeckOfCards::class));
+        $session
+            ->method('get')
+            ->with('card_deck')
+            ->willReturn(new DeckOfCards());
+
+        $response = $this->controller->deckDrawNumber(5, $session);
+
+        $this->assertInstanceOf(Response::class, $response);
+        $this->assertSame('rendered', $response->getContent());
     }
 }
