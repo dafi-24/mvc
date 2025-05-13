@@ -6,6 +6,7 @@ use App\Controller\CardController;
 use App\Card\DeckOfCards;
 use Exception;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,30 +17,32 @@ use Twig\Environment as TwigEnvironment;
 class CardControllerTest extends TestCase
 {
     private CardController $controller;
-    private TwigEnvironment $twig;
+    /** @var TwigEnvironment|MockObject */
+    private $twig;
     private Container $container;
 
     protected function setUp(): void
     {
-        // Mock Twig så att render() alltid returnerar 'rendered'
-        $this->twig = $this->createMock(TwigEnvironment::class);
+        $this->twig = $this->getMockBuilder(TwigEnvironment::class)
+            ->disableOriginalConstructor()
+            ->getMock();
         $this->twig
+            ->expects($this->any())
             ->method('render')
             ->willReturn('rendered');
 
-        // Mock router (UrlGeneratorInterface) för redirectToRoute
-        $router = $this->createMock(UrlGeneratorInterface::class);
+        $router = $this->getMockBuilder(UrlGeneratorInterface::class)
+            ->disableOriginalConstructor()
+            ->getMock();
         $router
             ->method('generate')
             ->with('card_home', [])
             ->willReturn('/card');
 
-        // Skapa en enkel container och lägg in Twig + router
         $this->container = new Container();
         $this->container->set('twig', $this->twig);
         $this->container->set('router', $router);
 
-        // Initiera kontrollern och injicera container
         $this->controller = new CardController();
         $this->controller->setContainer($this->container);
     }
@@ -89,17 +92,14 @@ class CardControllerTest extends TestCase
     public function testDeckCreatesNewDeckWhenNoneInSession(): void
     {
         $session = $this->createMock(SessionInterface::class);
-        // Första has(): false, därefter get() returnerar Deck
         $session
             ->method('has')
             ->with('card_deck')
             ->willReturn(false);
-        // Förvänta exakt en set() vid nydeck
         $session
             ->expects($this->once())
             ->method('set')
             ->with('card_deck', $this->isInstanceOf(DeckOfCards::class));
-        // get() returnerar en ny DeckOfCards
         $session
             ->method('get')
             ->with('card_deck')
@@ -128,7 +128,6 @@ class CardControllerTest extends TestCase
     public function testDeckDrawCreatesDeckIfMissingAndDrawsOneCard(): void
     {
         $session = $this->createMock(SessionInterface::class);
-        // has() false → set() anropas två gånger (nya + efter draw)
         $session->method('has')->with('card_deck')->willReturn(false);
         $session
             ->expects($this->exactly(2))
