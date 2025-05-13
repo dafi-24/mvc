@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use RuntimeException;
 use App\Entity\Library;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\LibraryRepository;
@@ -90,7 +91,7 @@ class LibraryController extends AbstractController
             if ($imageFile instanceof UploadedFile && $imageFile->isValid()) {
                 $projectDir = $this->getParameter('kernel.project_dir');
                 if (!is_string($projectDir)) {
-                    throw new \RuntimeException('Projektkatalogen kunde inte hämtas.');
+                    throw new RuntimeException('Projektkatalogen kunde inte hämtas.');
                 }
 
                 $uploadsDir = $projectDir . '/public/uploads';
