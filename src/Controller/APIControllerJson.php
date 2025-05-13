@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class APIControllerJson extends AbstractController
 {
     /**
-     * @var array $routes Innehåller alla tillgängliga rutter för API:et.
+     * Innehåller alla tillgängliga rutter för API:et.
      */
     #[Route("/api", name: "api_overview")]
     public function apiOverview(): Response

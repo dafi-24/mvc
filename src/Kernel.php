@@ -9,6 +9,9 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
+    /**
+     * @var array<string, object>
+     */
     protected static array $instanceof = [];
     protected string $name;
 }

@@ -33,7 +33,7 @@ class GameControllerTest extends TestCase
         $router = $this->getMockBuilder(UrlGeneratorInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $router->method('generate')->willReturnCallback(function(string $route, ...$_) {
+        $router->method('generate')->willReturnCallback(function (string $route) {
             return $route === 'game_play' ? '/game/play' : '/game/result';
         });
 
@@ -114,6 +114,8 @@ class GameControllerTest extends TestCase
         $session->expects($this->once())->method('set')->with('game', $game);
 
         $response = $this->controller->hit($session);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertSame('/game/play', $response->getTargetUrl());
     }
 
@@ -126,6 +128,8 @@ class GameControllerTest extends TestCase
         $session->expects($this->once())->method('set')->with('game', $game);
 
         $response = $this->controller->hit($session);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertSame('/game/result', $response->getTargetUrl());
     }
 
@@ -139,6 +143,8 @@ class GameControllerTest extends TestCase
         $session->expects($this->once())->method('set')->with('game', $game);
 
         $response = $this->controller->stand($session);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertSame('/game/result', $response->getTargetUrl());
     }
 
@@ -152,6 +158,8 @@ class GameControllerTest extends TestCase
         $session->expects($this->once())->method('set')->with('game', $game);
 
         $response = $this->controller->double($session);
+
+        $this->assertInstanceOf(RedirectResponse::class, $response);
         $this->assertSame('/game/result', $response->getTargetUrl());
     }
 

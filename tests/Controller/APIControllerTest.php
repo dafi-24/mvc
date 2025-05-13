@@ -30,7 +30,7 @@ class APIControllerJsonTest extends KernelTestCase
         $response = $this->controller->jsonNumber();
 
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
 
         $this->assertArrayHasKey('lucky-number', $data);
         $this->assertIsInt($data['lucky-number']);
@@ -42,7 +42,7 @@ class APIControllerJsonTest extends KernelTestCase
     {
         $response = $this->controller->jsonQuote();
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
 
         $this->assertArrayHasKey('quote', $data);
         $this->assertIsString($data['quote']);
@@ -70,7 +70,7 @@ class APIControllerJsonTest extends KernelTestCase
 
         $response = $this->controller->getDeck($session);
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
 
         $this->assertCount(4, $data);
         foreach ($data as $suitCards) {
@@ -90,7 +90,7 @@ class APIControllerJsonTest extends KernelTestCase
 
         $response = $this->controller->shuffleDeck($session);
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
 
         $this->assertCount(52, $data);
         $this->assertIsString($data[0]);
@@ -108,7 +108,7 @@ class APIControllerJsonTest extends KernelTestCase
 
         $response = $this->controller->drawCards($session, 5);
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
 
         $this->assertArrayHasKey('drawn_cards', $data);
         $this->assertCount(5, $data['drawn_cards']);
@@ -126,7 +126,7 @@ class APIControllerJsonTest extends KernelTestCase
         $response = $this->controller->drawCards($session, 1000);
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertEquals(JsonResponse::HTTP_BAD_REQUEST, $response->getStatusCode());
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
         $this->assertArrayHasKey('error', $data);
     }
 
@@ -157,7 +157,7 @@ class APIControllerJsonTest extends KernelTestCase
 
         $response = $this->controller->listBooks($repo);
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
 
         $this->assertCount(1, $data);
         $this->assertEquals('Test Title', $data[0]['title']);
@@ -179,7 +179,7 @@ class APIControllerJsonTest extends KernelTestCase
         $response = $this->controller->getBookByIsbn($repo, $isbn);
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertEquals(JsonResponse::HTTP_OK, $response->getStatusCode());
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
         $this->assertEquals('Another Title', $data['titel']);
     }
 
@@ -191,7 +191,7 @@ class APIControllerJsonTest extends KernelTestCase
         $response = $this->controller->getBookByIsbn($repo, '0000');
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertEquals(JsonResponse::HTTP_NOT_FOUND, $response->getStatusCode());
-        $data = json_decode($response->getContent(), true);
+        $data = json_decode($response->getContent() ?: '', true);
         $this->assertArrayHasKey('error', $data);
     }
 }

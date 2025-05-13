@@ -116,7 +116,7 @@
                 <strong>Fixa till coverage så att det får ett bättre betyg.</strong>
             </li>
             <li>
-                <strong>Fixa till issues och violations som existerar i min kod.</strong>
+                <strong>Fixa till issues som existerar i min kod.</strong>
             </li>
             <li>
                 <strong>Öka maintainability index så att min blob är lite grönare.</strong>
@@ -126,6 +126,64 @@
                 då ska jag kunna uppnå en mer "clean code".
                 Anledningen till att jag väljer just dessa saker och fixa till är för att det är större saker som
                 visar resultat direkt.
+            </p>
+            <p>
+                För att få bättre coverage så skapar jag mer tester och eftersom jag redan har tester på alla mina klasser så
+                skapar jag tester för mina controllers också.
+                För att fixa mina issues så kollar jag vad det är de klagar på och vad som behöver göras för att städa upp det lite.
+                Genom att skriva lite mer Docblocks så kommer min maintainability index att öka och göra min blob grönare.
+            </p>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <div class="about-text">
+            <p>
+                Efter att ha åtgärdat de identifierade problemen i koden visar både phpmetrics och Scrutinizer-rapporterna tydliga förbättringar.
+                Coverage låg innan på 22 %, nu ligger det på 64 %.
+                Det är en ökning med 42 procentenheter, vilket innebär att en majoritet av kodbasen nu är testad.
+            </p>
+            <p>
+                Scrutinizer-betyg låg innan på 9.96 och är nu +0.01.
+                En liten, men positiv ökning.
+            </p>
+            <p>
+                Blobsen var inan majoriteten röda och nu majoriteten gröna.
+                Det betyder att vi har fått mycket bättre maintainability index.
+            </p>
+            <p>
+                Majoriteten av de issues som jag hade innan är också borta nu, med undantaget för ett par i exempel-filerna.
+            </p>
+        </div>
+        <div class="about-image">
+            <a href="{{ asset('img/scrutinizer_after.png') }}">
+                <img src="{{ asset('img/scrutinizer_after.png') }}" alt="Scrutinizer Visualization">
+            </a>
+        </div>
+        <div class="about-image">
+            <a href="{{ asset('img/blobs.png') }}">
+                <img src="{{ asset('img/blobs.png') }}" alt="Blobs">
+            </a>
+        </div>
+    </div>
+
+    <div class="about-container">
+        <div class="about-text">
+        <h2>Diskussion</h2>
+            <p>
+                Jag har genom det här arbetet kunnat se hur man med verktyg som Scrutinizer, PHPUnit och phpmetrics kan höja kodkvaliteten och följa clean code-principer.
+                Genom att skriva fler enhetstester i PHPUnit ökade jag testtäckningen väldigt mycket, vilket gjorde det enklare att upptäcka och fixa buggar.
+                Med phpmetrics kunde jag mäta kodkomplexitet och maintainability index, och genom att förbättra det så ser vi antalet komplexa blobs har minskat.
+                Scrutinizer samlade sedan ihop all kodkvalitetsdata och gav en övergripande bedömning, vilket hjälpte mig att prioritera de mest kritiska delarna.
+            </p>
+            <p>
+                Fördelarna med denna metod är tydliga: koden blir renare, mer modulär och lättare att underhålla.
+                En nackdel kan vara att upprättandet av testsviten och konfigurationen av analysverktygen tar tid i början.
+                Men denna investering betalar tillbaka sig när problem fångas upp automatiskt och man får en rapport på varför det gick fel.
+            </p>
+            <p>
+                Andra sätt att arbeta mot clean code skulle kunna vara att kodgranska andra arbeten eller till och med parprogrammering.
+                På detta sätt behöver man ta hänsyn till andra personer och då blir det mycket lättare om man skriver "clean code"
             </p>
         </div>
     </div>

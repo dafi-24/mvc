@@ -86,11 +86,14 @@ class LibraryController extends AbstractController
             $book->setImageUrl('default.jpg');
 
             /** @var UploadedFile|null $imageFile */
-            // @phpstan-ignore-next-line
             $imageFile = $request->files->get('imageFile');
-            // @phpstan-ignore-next-line
             if ($imageFile instanceof UploadedFile && $imageFile->isValid()) {
-                $uploadsDir = $this->getParameter('kernel.project_dir') . '/public/uploads';
+                $projectDir = $this->getParameter('kernel.project_dir');
+                if (!is_string($projectDir)) {
+                    throw new \RuntimeException('Projektkatalogen kunde inte hämtas.');
+                }
+
+                $uploadsDir = $projectDir . '/public/uploads';
                 $newFilename = uniqid() . '.' . $imageFile->guessExtension();
                 try {
                     $imageFile->move($uploadsDir, $newFilename);

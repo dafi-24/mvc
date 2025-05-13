@@ -258,7 +258,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003AapiOverview\u0028\u0029",
             "name": "apiOverview",
-            "summary": "",
+            "summary": "Inneh\u00E5ller\u0020alla\u0020tillg\u00E4ngliga\u0020rutter\u0020f\u00F6r\u0020API\u003Aet.",
             "url": "classes/App-Controller-APIControllerJson.html#method_apiOverview"
         },                {
             "fqsen": "\\App\\Controller\\APIControllerJson\u003A\u003A__construct\u0028\u0029",
@@ -630,6 +630,16 @@ Search.appendIndex(
             "name": "Kernel",
             "summary": "",
             "url": "classes/App-Kernel.html"
+        },                {
+            "fqsen": "\\App\\Kernel\u003A\u003A\u0024instanceof",
+            "name": "instanceof",
+            "summary": "",
+            "url": "classes/App-Kernel.html#property_instanceof"
+        },                {
+            "fqsen": "\\App\\Kernel\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/App-Kernel.html#property_name"
         },                {
             "fqsen": "\\App\\Repository\\LibraryRepository",
             "name": "LibraryRepository",

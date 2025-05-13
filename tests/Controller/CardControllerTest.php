@@ -117,7 +117,7 @@ class CardControllerTest extends TestCase
         $session
             ->expects($this->once())
             ->method('set')
-            ->with('card_deck', $this->callback(fn($deck) => $deck instanceof DeckOfCards));
+            ->with('card_deck', $this->callback(fn ($deck) => $deck instanceof DeckOfCards));
 
         $response = $this->controller->deckShuffle($session);
 
