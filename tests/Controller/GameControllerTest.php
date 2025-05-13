@@ -33,7 +33,7 @@ class GameControllerTest extends TestCase
         $router = $this->getMockBuilder(UrlGeneratorInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
-        $router->method('generate')->willReturnCallback(function(string $route, array $params = []) {
+        $router->method('generate')->willReturnCallback(function(string $route, ...$_) {
             return $route === 'game_play' ? '/game/play' : '/game/result';
         });
 

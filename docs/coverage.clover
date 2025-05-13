@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1747119852">
-  <project timestamp="1747119852">
+<coverage generated="1747120798">
+  <project timestamp="1747120798">
     <file name="/home/feedux/dbwebb-kurser/mvc/me/report/src/Card/BlackjackGame.php">
       <class name="App\Card\BlackjackGame" namespace="global">
-        <metrics complexity="14" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="36" coveredelements="36"/>
+        <metrics complexity="14" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="37" coveredelements="37"/>
       </class>
       <line num="21" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="11"/>
       <line num="23" type="stmt" count="11"/>
@@ -24,24 +24,25 @@
       <line num="57" type="stmt" count="2"/>
       <line num="58" type="stmt" count="1"/>
       <line num="59" type="stmt" count="1"/>
-      <line num="61" type="stmt" count="1"/>
-      <line num="69" type="method" name="dealerTurn" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="71" type="stmt" count="1"/>
-      <line num="79" type="method" name="determineWinner" visibility="public" complexity="5" crap="5" count="5"/>
-      <line num="81" type="stmt" count="5"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="70" type="method" name="dealerTurn" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="72" type="stmt" count="1"/>
+      <line num="80" type="method" name="determineWinner" visibility="public" complexity="5" crap="5" count="5"/>
       <line num="82" type="stmt" count="5"/>
-      <line num="84" type="stmt" count="5"/>
-      <line num="85" type="stmt" count="1"/>
-      <line num="87" type="stmt" count="4"/>
-      <line num="88" type="stmt" count="2"/>
-      <line num="90" type="stmt" count="2"/>
-      <line num="91" type="stmt" count="1"/>
-      <line num="93" type="stmt" count="1"/>
-      <line num="101" type="method" name="getPlayer" visibility="public" complexity="1" crap="1" count="9"/>
-      <line num="103" type="stmt" count="9"/>
-      <line num="111" type="method" name="getDealer" visibility="public" complexity="1" crap="1" count="6"/>
-      <line num="113" type="stmt" count="6"/>
-      <metrics loc="116" ncloc="75" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="29" elements="36" coveredelements="36"/>
+      <line num="83" type="stmt" count="5"/>
+      <line num="85" type="stmt" count="5"/>
+      <line num="86" type="stmt" count="1"/>
+      <line num="88" type="stmt" count="4"/>
+      <line num="89" type="stmt" count="2"/>
+      <line num="91" type="stmt" count="2"/>
+      <line num="92" type="stmt" count="1"/>
+      <line num="94" type="stmt" count="1"/>
+      <line num="102" type="method" name="getPlayer" visibility="public" complexity="1" crap="1" count="9"/>
+      <line num="104" type="stmt" count="9"/>
+      <line num="112" type="method" name="getDealer" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="114" type="stmt" count="6"/>
+      <metrics loc="117" ncloc="76" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="37" coveredelements="37"/>
     </file>
     <file name="/home/feedux/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
@@ -94,13 +95,13 @@
       <line num="54" type="stmt" count="13"/>
       <line num="55" type="stmt" count="10"/>
       <line num="56" type="stmt" count="11"/>
-      <line num="57" type="stmt" count="6"/>
-      <line num="58" type="stmt" count="6"/>
-      <line num="59" type="stmt" count="6"/>
-      <line num="60" type="stmt" count="6"/>
+      <line num="57" type="stmt" count="7"/>
+      <line num="58" type="stmt" count="5"/>
+      <line num="59" type="stmt" count="5"/>
+      <line num="60" type="stmt" count="5"/>
       <line num="65" type="stmt" count="14"/>
-      <line num="66" type="stmt" count="2"/>
-      <line num="67" type="stmt" count="2"/>
+      <line num="66" type="stmt" count="1"/>
+      <line num="67" type="stmt" count="1"/>
       <line num="70" type="stmt" count="14"/>
       <line num="78" type="method" name="isBust" visibility="public" complexity="1" crap="1" count="2"/>
       <line num="80" type="stmt" count="2"/>
@@ -112,7 +113,7 @@
       </class>
       <line num="24" type="method" name="playTurn" visibility="public" complexity="2" crap="2" count="3"/>
       <line num="26" type="stmt" count="3"/>
-      <line num="27" type="stmt" count="2"/>
+      <line num="27" type="stmt" count="1"/>
       <metrics loc="31" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="2" elements="3" coveredelements="3"/>
     </file>
     <file name="/home/feedux/dbwebb-kurser/mvc/me/report/src/Card/DeckOfCards.php">
@@ -610,7 +611,7 @@
       <class name="App\Kernel" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
-      <metrics loc="12" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="15" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/feedux/dbwebb-kurser/mvc/me/report/src/Repository/LibraryRepository.php">
       <class name="App\Repository\LibraryRepository" namespace="global">
@@ -628,6 +629,6 @@
       <line num="16" type="stmt" count="0"/>
       <metrics loc="80" ncloc="23" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
     </file>
-    <metrics files="19" loc="1863" ncloc="1226" classes="18" methods="94" coveredmethods="57" conditionals="0" coveredconditionals="0" statements="419" coveredstatements="269" elements="513" coveredelements="326"/>
+    <metrics files="19" loc="1867" ncloc="1230" classes="18" methods="94" coveredmethods="57" conditionals="0" coveredconditionals="0" statements="420" coveredstatements="270" elements="514" coveredelements="327"/>
   </project>
 </coverage>

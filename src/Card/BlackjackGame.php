@@ -55,7 +55,8 @@ class BlackjackGame
             return ! $this->player->isBust();
         }
         if ($choice === 'double') {
-            $this->player->hit(...$this->deck->draw(1));
+            $cards = $this->deck->draw(1);
+            $this->player->hit($cards[0]);
             return ! $this->player->isBust();
         }
         return true;

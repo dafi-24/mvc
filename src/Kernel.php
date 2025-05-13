@@ -8,4 +8,7 @@ use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
+
+    protected static array $instanceof = [];
+    protected string $name;
 }
