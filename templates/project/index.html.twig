@@ -1,0 +1,110 @@
+{% extends "base2.html.twig" %}
+
+{% block title %}Hållbar Energi för Alla{% endblock %}
+
+{% block main %}
+    <h1>Hållbar Energi för Alla</h1>
+    <div class="text-container">
+        <p>
+            I arbetet med att nå de globala hållbarhetsmålen spelar energiområdet en avgörande roll.
+            Det sjunde målet i FN:s Agenda 2030 handlar om att säkerställa tillgång till tillförlitlig, hållbar och modern energi till ett överkomligt pris för alla.
+        </p>
+        <p>
+            Två centrala indikatorer för att följa upp detta mål är:
+            Andel förnybar energi i olika sektorer (produktion och konsumtion), och
+            Energiintensitet, det vill säga hur mycket energi som krävs för att producera ett visst ekonomiskt värde (BNP).
+        </p>
+    </div>
+    <h2>Andel förnybar energi</h2>
+    <div class="about-container">
+        <div class="about-image">
+            <a href="{{ asset('img/nyckeltal2.png') }}">
+                <img src="{{ asset('img/nyckeltal2.png') }}" alt="">
+            </a>
+        </div>
+
+        <div class="about-text">
+            <p>
+                Det första diagrammet visar andelen förnybar energi inom tre viktiga sektorer: uppvärmning/industri, elproduktion samt transport, med ett summerande totalvärde.
+                Data visar hur utvecklingen sett ut över flera år.
+                Vi har data från 2005-2021.
+            </p>
+        </div>
+    </div>
+
+    <h2>Diagram: Andel förnybar energi</h2>
+    <div class="text-container">
+        <canvas id="energyChart" width="800" height="400"></canvas>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const energyChartData = {
+                labels: {{ energyData|map(e => e.year)|reverse|json_encode|raw }},
+                heatingIndustry: {{ energyData|map(e => e.heatingIndustry)|reverse|json_encode|raw }},
+                electricity: {{ energyData|map(e => e.electricity)|reverse|json_encode|raw }},
+                transport: {{ energyData|map(e => e.transport)|reverse|json_encode|raw }},
+                total: {{ energyData|map(e => e.total)|reverse|json_encode|raw }}
+            };
+        </script>
+        <script src="{{ asset('js/energy-chart.js') }}"></script>
+    </div>
+
+    <h2>Analys</h2>
+    <div class="text-container">
+        <p>
+            I diagrammet framgår tydligt att elproduktionen i Sverige har haft en mycket hög andel förnybar energi över tid, ofta över 50 %.
+            Transportsektorn har dock historiskt legat betydligt lägre men visar en viss ökning. Detta återspeglar Sveriges satsningar på biodrivmedel och elektrifiering av fordonsflottan.
+            Totalandelen påverkas kraftigt av utvecklingen i transportsektorn.
+        </p>
+    </div>
+
+    <h2>Energieffektivitet (Energiintensitet jämfört med 2008)</h2>
+    <div class="about-container">
+        <div class="about-image">
+            <a href="{{ asset('img/nyckeltal1.png') }}">
+                <img src="{{ asset('img/nyckeltal1.png') }}" alt="">
+            </a>
+        </div>
+
+        <div class="about-text">
+            <p>
+                Den andra datamängden fokuserar på indikator 7.3.1 – Energiintensitet, som mäter den totala energitillförseln i relation till BNP.
+                Basåret är 2008 och all förändring mäts i procent från det året.
+            </p>
+        </div>
+    </div>
+
+    <h2>Diagram: Energiintensitet</h2>
+    <div class="text-container">
+        <canvas id="intensityChart" width="800" height="400"></canvas>
+
+        <script>
+            const intensityChartData = {
+                labels: {{ intensityData|map(i => i.year)|reverse|json_encode|raw }},
+                values: {{ intensityData|map(i => i.percentChange)|reverse|json_encode|raw }}
+            };
+        </script>
+        <script src="{{ asset('js/intensity-chart.js') }}"></script>
+    </div>
+
+    <h2>Analys</h2>
+    <div class="text-container">
+        <p>
+            Diagrammet visar en tydlig minskning i energiintensiteten sedan 2008, vilket indikerar att Sverige blivit bättre på att producera ekonomiskt värde med mindre energiförbrukning.
+            Detta är ett positivt tecken på att energieffektiviseringar inom industrin, digitalisering, och skifte till tjänstebaserad ekonomi ger effekt.
+        </p>
+    </div>
+
+    <h2>Diskussion</h2>
+    <div class="text-container">
+        <p>
+            Att visualisera och analysera energidata är viktigt för att förstå hur långt vi har kommit i klimatomställningen – och vilka utmaningar som kvarstår.
+            Med hjälp av grafer och tabeller blir det lättare att kommunicera komplexa samband till både experter och allmänheten.
+            Sverige har gjort stora framsteg både inom förnybar energi och energieffektivisering. Elproduktionen är i stort sett fossilfri, och värmesektorn har också ställt om kraftigt.
+            Transportsektorn är fortsatt en svag punkt men förbättras successivt. Energiintensiteten har minskat med 25 % sedan 2008, vilket slår målet om 20 % till 2020 – och utgör en god grund för att nå målet till 2030.
+            Detta projekt visar hur man med data, moderna webbramverk och visualisering kan skapa tydliga, informativa och tillgängliga verktyg för att följa upp hållbarhetsmål.
+            Det är ett exempel på hur teknik och samhällsvetenskap kan mötas i praktiken.
+        </p>
+    </div>
+
+{% endblock %}

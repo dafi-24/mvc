@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('proj') }}
+            {# Lägg gärna till CSS för dropdown, t.ex. via Bootstrap #}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <header class="site-header" style="background-image: url({{ asset('img/sustain_header.jpg') }})">
+        <nav class="header-nav">
+            <ul>
+                <li><a href="{{ path('home') }}">Home</a></li>
+                <li><a href="{{ path('project') }}">Projekt</a></li>
+                <li><a href="{{ path('project_about') }}">About</a></li>
+                <li><a href="{{ path('project_database') }}">Database</a></li>
+            </ul>
+        </nav>
+        <span class="site-title">Sustainability</span>
+        </header>
+
+        {% block main %}{% endblock %}
+        {% include 'footer2.html.twig' %}
+    </body>
+</html>

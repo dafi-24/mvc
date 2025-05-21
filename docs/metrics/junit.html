@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2025-05-13 09:33:58        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2025-05-21 09:33:58        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -74,10 +74,10 @@
         <div class="bloc bloc-number">
             <div class="label">
                 classes never called by tests
-                <small>(47.37 %)</small>
+                <small>(58.33 %)</small>
             </div>
             <div class="number">
-                9            </div>
+                14            </div>
         </div>
     </div>
 </div>
@@ -125,7 +125,29 @@
                                     </td>
                                                             </tr>
                                                         <tr>
+                                <td><span class="path">App\Repository\EnergyShareRepository</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        1                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        0                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
                                 <td><span class="path">App\Repository\ProductRepository</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        1                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        0                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
+                                <td><span class="path">App\Repository\EnergyIntensityRepository</span></td>
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         1                                        </span>
@@ -155,6 +177,28 @@
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);">
                                         0.02                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
+                                <td><span class="path">App\Entity\EnergyShare</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        1                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);">
+                                        0.05                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
+                                <td><span class="path">App\Entity\EnergyIntensity</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        1                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);">
+                                        0.01                                        </span>
                                     </td>
                                                             </tr>
                                                         <tr>
@@ -199,6 +243,17 @@
                                                                     <td>
                                         <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.4);">
                                         0.4                                        </span>
+                                    </td>
+                                                            </tr>
+                                                        <tr>
+                                <td><span class="path">App\Controller\ProjectController</span></td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        1                                        </span>
+                                    </td>
+                                                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);">
+                                        0.05                                        </span>
                                     </td>
                                                             </tr>
                                                     </tbody>
@@ -619,7 +674,7 @@
 
 
             
-            var json = {"name":"Execution time","children":[{"name":"App\\Card\\BlackjackGameTest","time":0.015287},{"name":"App\\Card\\CardGraphicTest","time":0.002648},{"name":"App\\Card\\CardHandTest","time":0.021832},{"name":"App\\Card\\CardTest","time":0.001358},{"name":"App\\Card\\DealerTest","time":0.007357},{"name":"App\\Card\\DeckOfCardsTest","time":0.014188},{"name":"App\\Card\\PlayerTest","time":0.00315},{"name":"App\\Tests\\Controller\\APIControllerJsonTest","time":2.293117},{"name":"App\\Tests\\Controller\\CardControllerTest","time":0.017997},{"name":"App\\Tests\\Controller\\GameControllerTest","time":0.011341}]};
+            var json = {"name":"Execution time","children":[{"name":"App\\Card\\BlackjackGameTest","time":0.011382},{"name":"App\\Card\\CardGraphicTest","time":0.001306},{"name":"App\\Card\\CardHandTest","time":0.012102},{"name":"App\\Card\\CardTest","time":0.000628},{"name":"App\\Card\\DealerTest","time":0.003604},{"name":"App\\Card\\DeckOfCardsTest","time":0.008772},{"name":"App\\Card\\PlayerTest","time":0.001321},{"name":"App\\Tests\\Controller\\APIControllerJsonTest","time":0.117509},{"name":"App\\Tests\\Controller\\CardControllerTest","time":0.013453},{"name":"App\\Tests\\Controller\\GameControllerTest","time":0.009986}]};
             root = json;
             var nodes = treemap.nodes(json)
                 .filter(function (d) {

@@ -1,0 +1,62 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Om Databas{% endblock %}
+
+{% block main %}
+    <h1>Databasen för Hållbar Energi</h1>
+
+    <h2>ER-diagram</h2>
+    <a href="{{ asset('img/project.jpg') }}">
+        <img src="{{ asset('img/project.jpg') }}" alt="">
+    </a>
+
+    <h2>Tabeller</h2>
+    <div class="text-container">
+        <ul>
+            <p><strong>energy_share</strong>: Sparar årlig andel förnybar energi i procent per sektor.</p>
+            <p><strong>energy_intensity</strong>: Sparar årlig procentuell förändring i energiintensitet jämfört med basår 2008.</p>
+        </ul>
+    </div>
+
+    <h2>Relationer</h2>
+    <div class="text-container">
+        <p>Tabellerna är oberoende och har inga direkta relationer, eftersom varje tabell representerar olika indikatorer utan gemensamma nycklar.</p>
+    </div>
+
+    <h2>Databasen</h2>
+        <div class="text-container">
+        <p>Projektet använder <strong>SQLite</strong> som databas.</p>
+        <p>Jag valde att göra det med SQLite eftersom jag var van med det från tidigare kursmoment.</p>
+    </div>
+
+    <h2>Enhetstester</h2>
+    <div class="text-container">
+        <p>Jag har inte skapat några enhetstester för databasen då jag inte har kunskapen för det.</p>
+        <p>Jag hade troligtvis kunnat lösa det men jag har valt att lägga fokus på andra delar istället.</p>
+    </div>
+
+    <h2>ORM vs. Databaskursen</h2>
+    <div class="text-container">
+        <p>
+            Jag har precis börjat använda ORM i Symfony med Doctrine, och till en början kändes allt ganska förvirrande.
+            Man skriver ju bara lite text i WSL, och plötsligt löser ramverket all SQL åt en.
+            Det är ändå bra på så sätt att jag inte behöver skriva egna SQL-satser för att skapa eller ändra tabeller.
+            Doctrine genererar allt åt mig och ser till att parametrar binds rätt.
+        </p>
+        <p>
+            Efter att jag har använt det ett par gånger nu så ser jag direkt fördelen med det här. 
+            Jag slipper skriva långa SQL-queries och kan i stället fokusera på annat.
+            Om jag har satt upp det rätt så slipper jag fundera på detaljerna för att de ska fungera.
+            Samtidigt så finns det absolut nackdelar med det också.
+            I mitt projekt med bara två tabeller har det funkat jättebra, men jag kan tänka mig att om databasen var större och mer komplex, som vi hade i databaskursen, så skulle jag vilja ha mer kontroll.
+            Och för att få denna extra kontrollen så hade jag nog föredragit att skriva rå SQL själv.
+        </p>
+        <p>
+            Det största likheten mellan är att oavsett om jag använder Doctrine eller skriver SQL själv, så pratar jag ändå med samma relationsdatabas och tabellerna ser likadana ut.
+            Skillnaden är främst att ORM gömmer SQL-koden under ett lager objektorienterad hantering, vilket gör att det går snabbare att sätta igång.
+            Men jag upplever också att jag tappar lite insyn i exakt vad som händer.
+            Så för mig, som fortfarande är relativt ny på det här, känns det som att ORM är ett fantastiskt sätt att komma igång snabbt och slippa krångla med SQL.
+            Men jag misstänker att i större system där varje millisekund räknas, eller där databasen är komplicerad, så är det verkligen värt att kunna sin SQL på djupet och skriva sin egna kod.
+        </p>
+    </div>
+{% endblock %}
